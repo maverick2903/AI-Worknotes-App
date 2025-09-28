@@ -56,7 +56,7 @@ const App: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [syncStatus, setSyncStatus] = useState<SyncStatus>({ message: '', type: 'info', show: false });
     
-    const [githubConfig, setGithubConfig] = useState<GithubConfig>({ token: '', owner: '', repo: '', path: 'notes.json', branch: 'main'});
+    const [githubConfig, setGithubConfig] = useState<GithubConfig>({ token: '', owner: '', repo: '', path: 'notes.json', branch: 'notes'});
     // FIX: Removed Gemini API key state management to adhere to environment variable guidelines.
     
     useEffect(() => {
