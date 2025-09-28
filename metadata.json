@@ -1,0 +1,5 @@
+{
+  "name": "Work Journal // Enhanced Neo-Brutalist",
+  "description": "A responsive React-based work journal application with a neo-brutalist design. It uses the Gemini API for AI-powered insights and the GitHub API for data persistence, allowing for live updates without redeploys.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Journal // Enhanced Neo-Brutalist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-primary: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #141414;
+            --bg-surface: #1C1C1C;
+            --text-primary: #FAFAFA;
+            --text-secondary: #B4B4B4;
+            --text-muted: #6B6B6B;
+            --border: #3A3A3A;
+            --border-hover: #5A5A5A;
+            --accent-yellow: #FFE500;
+            --accent-pink: #FF0099;
+            --accent-green: #00FF88;
+            --accent-blue: #00B4FF;
+            --accent-purple: #9945FF;
+            --accent-orange: #FF6B00;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 40px, var(--border) 40px, var(--border) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, var(--border) 40px, var(--border) 41px);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .font-primary { font-family: var(--font-primary); }
+        .font-mono { font-family: var(--font-mono); }
+
+        .header-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-yellow), var(--accent-green));
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+       
+        @keyframes gradient-shift {
+            0%, 100% { transform: translateX(-50%) scaleX(1); }
+            50% { transform: translateX(-50%) scaleX(1.5); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .notes-list::-webkit-scrollbar { width: 8px; }
+        .notes-list::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        .notes-list::-webkit-scrollbar-thumb { background: var(--border); }
+        .notes-list::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
