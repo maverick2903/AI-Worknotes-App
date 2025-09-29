@@ -30,7 +30,7 @@ export const DailyLog: React.FC<DailyLogProps> = ({ journalData, onSaveNote, onD
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   useEffect(() => {
-    const note = journalData.notes[currentDate];
+    const note = (journalData.notes || {})[currentDate];
     setNoteContent(note ? note.content : '');
   }, [currentDate, journalData.notes]);
 
@@ -71,7 +71,7 @@ export const DailyLog: React.FC<DailyLogProps> = ({ journalData, onSaveNote, onD
     setCurrentDate(date);
   };
 
-  const sortedNotes = Object.entries(journalData.notes).sort(([dateA], [dateB]) => new Date(dateB).getTime() - new Date(dateA).getTime());
+  const sortedNotes = Object.entries(journalData.notes || {}).sort(([dateA], [dateB]) => new Date(dateB).getTime() - new Date(dateA).getTime());
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fadeIn">

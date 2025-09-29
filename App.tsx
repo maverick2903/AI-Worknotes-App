@@ -65,6 +65,13 @@ const App: React.FC = () => {
         if (savedGithubConfig) setGithubConfig(JSON.parse(savedGithubConfig));
     }, []);
 
+    // Auto-load from GitHub when config is present
+    useEffect(() => {
+        if (githubConfig.token && githubConfig.owner && githubConfig.repo && githubConfig.path && githubConfig.branch) {
+            loadDataFromGithub();
+        }
+    }, [githubConfig.token, githubConfig.owner, githubConfig.repo, githubConfig.path, githubConfig.branch]);
+
     const showSyncStatus = (message: string, type: SyncStatus['type'] = 'success', duration = 3000) => {
         setSyncStatus({ message, type, show: true });
         setTimeout(() => setSyncStatus({ message: '', type, show: false }), duration);
@@ -219,7 +226,8 @@ const App: React.FC = () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             try {
-                const importedData = JSON.parse(e.target?.result as string);
+                const raw = JSON.parse(e.target?.result as string);
+                const importedData = (raw && typeof raw === 'object' && 'data' in raw) ? (raw as any).data : raw;
                 setJournalData(importedData);
                 saveDataToGithub(importedData, "docs: import journal data");
             } catch (error) {
