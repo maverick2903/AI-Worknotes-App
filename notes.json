@@ -1,548 +1,548 @@
 {
-  "version": "2.0",
-  "exportedAt": "2025-09-29T17:15:58.082Z",
-  "data": {
-    "notes": {
-      "2025-06-16": {
-        "content": "Day 1! Orientation session about the company, its values, its customers\nSecond half of the session about the services offered by company\nGot access to work tools (Slack, Asana) and misc payroll, insurance etc. Got goodies too!",
-        "timestamp": "2025-06-21T12:08:23.197Z"
-      },
-      "2025-06-17": {
-        "content": "Got to understand working of internal tools, mainly Bifrost, Heimdall and Matsya\nBifrost is comprehensive data ingestion pipeline, Heimdall is autodeployment and Matsya is config tool for data ingestion. Got software accesses (aws, databricks, github etc)\nFingerprint works!\nTO DO: Watch KT video",
-        "timestamp": "2025-06-21T12:09:57.908Z"
-      },
-      "2025-06-18": {
-        "content": "Wasnt assigned task yet, was mostly idling till 2-3\nGot tech demo about ingestion pipeline, looked at pyhub nb structure \nWatched KT videos about tags, (the term for the scoring based on tags i forgot) mainly",
-        "timestamp": "2025-06-21T12:10:09.244Z",
-        "mood": "Neutral"
-      },
-      "2025-06-19": {
-        "content": "Got started on tasks today (Rushabh assigned lol)\nNeed to add 2 new tags to a customer Curo Financial\nDownloaded aws cli and ssm, configured local tunnelling setup and accessed curof’s notebooks\nMade a copy and looked at existing tag functions\nStarted working on Regex for Line of Credit tag, built a regex, found caught tag ids and checked if they were relevant\nAlso started on Car Loan, work more on it tomorrow",
-        "timestamp": "2025-06-21T12:10:37.035Z",
-        "mood": "Focused"
-      },
-      "2025-06-20": {
-        "content": "Continued working on the 2 tags\nChecked out examples for Line of Credit tag, seems okay unless they want mention of payment\nFor car loan the initial regex was faulty, adding a positive and negative regex very much limits the examples tho. Depends on the requirements again. \nAttended engg sprint",
-        "timestamp": "2025-06-21T12:10:52.011Z",
-        "mood": "Focused"
-      },
-      "2025-06-23": {
-        "content": "Got the temporary laptop, setup stuff on it, wrote a fairly decent doc explaining setup of local tunnelling to PyHub using aws cli; maybe petition adding it to company documentation?\nWorked on other tags' regex rules. The Auto Loan took a while, because I found out an additional way its present in the data so i added one more rule. Using a positive and negative regex is very limiting, so need to check the values with the CSM. \nAlso added regex rules for Customer Self Payment and High Risk Language. Used claude to generate rules and get a decent number of hits. Made a useful function that demos some hits and which section caused it to be captured. Hopefully work on new task tomorrow.",
-        "timestamp": "2025-06-23T18:18:21.682Z",
-        "mood": "Accomplished"
-      },
-      "2025-06-24": {
-        "content": "Big things done today!\nSo, there's a company who normally gets all of their data through TCN, but now they want to get some additional metadata fields which they provide through an excel upload on SFTP nightly. So what I had to do was download the excel files daily uploaded on S3, then store the values into a mongodb collection. There are a lot of redundant files, so I had to scan for duplicates. Once this is filled, I match the values of this collection with the ingested db data. There's a common TCN_ID which I had to locate for both collection as they had diff names. I map the additional metadata fields to the ingested collection and append to both the dialer and call Metadata. The dialerMetadata is linked to the ProInsight UI, so after I make some tweaks to the frontend config to allow these fields, the new metadata fields are reflected in the UI now. I did it for all past data from June 1, and now I wrote a script to perform this action daily. Fun stuff!\nFrom June 1 to June 24, there were around 42k entries which I mapped to past June data.\nOne minor bug: \nThe forwarding metadata is reflected twice on the UI for some reason, need to check it out.",
-        "timestamp": "2025-06-25T04:04:56.205Z",
-        "mood": "Accomplished"
-      },
-      "2025-06-25": {
-        "content": "Kinda chill day. Got assigned 2 tasks.\nFirst one was that, for a company, there are ProNotes db collections, so I had to pick up fields from that and make an excel, and automate sending a mail with the excel every monday. There were 2 fields Autonote and Agent Note and they also wanted differences between them, luckily there was already a field in the schema capturing that. Sent a sample excel for analysis, waiting for more.\nAnother task was to seemingly transfer data to Databricks. Needed more clarification on this, so pushed it to tomorrow.",
-        "timestamp": "2025-06-26T04:32:01.352Z",
-        "mood": "Neutral"
-      },
-      "2025-06-26": {
-        "content": "Week 2 chugging along to an end. Today, I debugged an issue with SNA where only around 1k/4k calls were being updated with metadata for that day. Took some time but it was a simple fix and that number got correctly pushed up to 2.9k calls for that day.\nAlso added documentation for the various Tags I had worked on previously, and reviewed them once and sent the remaining number heuristics to the CSM.\nFinally, for the ProNotes task, the request was to also add Note Editing Time, for which I'm not sure but I made a makeshift time field with 2 other time based fields present in the metadata. Need to identify its veracity but it seems a decent heuristic at least.",
-        "timestamp": "2025-06-27T04:12:05.072Z",
-        "mood": "Accomplished"
-      },
-      "2025-06-27": {
-        "content": "Friday, and what a Friday! So, today I had a meeting with the CTO and my manager. They're putting me in a different direction than that of a typical Solution Engineer daily task. \nPerhaps they looked at the pprojects in my resume? Anyways, so they have a product called ProAgent which is an end to end autonomous agent system from loan collection to schedule creating and getting payments. They want me to read up on prompt engineering techniques for a while then jump into the codebase and look at improvements and optimizations for ProAgent, the improvements in prompts, the function calling and stuff. This sounds very interesting and a lot closer to what I've worked on and had hoped to work on here. Hopefully I get to fulfill a good chunk of the \"Engineering\" part of prompt engineering, is all :)",
-        "timestamp": "2025-06-28T14:23:58.041Z",
-        "mood": "Excited"
-      },
-      "2025-06-30": {
-        "content": "Worked from home today cause I had nasty chest congestion in the morning. Best thing about the day was that I got a lot of sleep and chilled, but I didnt do much work at all as a result. I modified the excel automation script a bit and sent an excel of all notes from june 1st to june 27th, with edits and editing time. I also worked a lil bit more on the entire prompt engineering exercise, but not much.",
-        "timestamp": "2025-07-01T17:33:54.846Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-07-01": {
-        "content": "Another kinda meh day. I did have some fun struggling with the excel automation, basically figuring out what time to set it to (had set it to MONGODB's timezone instead of the clients lol) then settled on utc time. Then another challenge was how to automate this, so for this I had to set up a cronjob, I did this by scrounging around for the right python env then doing crontab -e and added my job to run the python file to send an excel every Monday at 9AM. That was kinda fun.\nI added some documentation to my prompt engineering doc(eh), then I got to look at the actual prompts being used in ProAgent and got a little used to the codebase. Next I gotta see what I do with these prompts.",
-        "timestamp": "2025-07-01T17:41:28.138Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-07-02": {
-        "content": "Yeah wasn't a very productive day. Spent the first half looking at the prompts again. Made a mock ProAgent setup on cursor to run text wise but it wasn't anything great. Looked into the prompt explainer idea Ive been ruminating on.\nHad a talk with Sangram and Kashish(engineer working on ProAgent) about my role, it would be to take up issues faced currently by the agent and tweak and modify prompts to improve it. Making use of cekura for testing voice agents. The talk felt kinda not great to me making me feel like I'd not be doing any coding just continously tweaking stuff in Natural Language. Let's wait and watch I guess?",
-        "timestamp": "2025-07-04T05:02:20.811Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-07-04": {
-        "content": "Was another interesting day after yesterday. Had a sync up call with Kashish in the morning, discussed the setup yesterday, and with a simple fix, I could now plug in previous conversations till a point and have the LLM speak the next sentence. Great for testing. \nOooooh also so the doc I made about Prompt Engineering was reviewed by the CEO?? And he left comments?? And shared it on slack?? Like omg I didnt expect that lmao now I'd need to actually put in some effort on it. But fine.\nThen I actually understood my tasks properly. I had to work with the prompts to:\nMake convenience fees sound positive\nAdd a tool call to the config to get which kinds of payment info was available and have the LLM speak that.\nAlso look at 3 different disclosure tool calls to pick which works best: essentially do you just give the info to the LLM again or hope it remembers from the previous state.\nSo the thing is now to get to a part in the previous convo, I have to edit a tedious JSON to simulate the convo till there. Which is cumbersome. But I have the chance to tool it up! To be the guy who makes it so that the guy after me doesnt deal with code, only text (Basically what I worried I would be). So the setup *works* now, but its a haphazard jumble of patched up from the repo running locally. Which I like, because I can make improvements not just for myself but as legit tools. So that seems promising. I liked the entire setup thingy from booting up redis to a uvicorn customllm server to a webhook that connects to Cekura for voice analysis - im in the TECH side of it and I like it. OH and I had 4 GREAT slices of pizza yesterday. Fun!",
-        "timestamp": "2025-07-05T10:01:07.314Z",
-        "mood": "Excited",
-        "tags": []
-      },
-      "2025-07-07": {
-        "content": "Felt sick all yesterday night, wasn't sure if I should go to office today. Finally decided to go in at 12. Didn't really do much in terms of work today, looked at including the disclosure statement in the payment on call prompt, there were like 10 issues with the API call which was out of my hand, I fixed the prompt as good as I could. Couldnt work on my prompt engg doc or tooling either, felt sick-ish. BUT by far highlight of the day was that for apparently world chocolate day they brought out a chocolate fountain and like vaaaaarious different kinda sweet things like smores, cookies, chocolate, brownies, etc etc. I ate so much sweet. Yay.",
-        "timestamp": "2025-07-08T04:24:54.968Z",
-        "mood": "Tired",
-        "tags": []
-      },
-      "2025-07-03": {
-        "content": "Got access to cekura, went through it a bit. I was mentioned on a task where a customers agent wasn’t being very subtle with the convenience fees. I asked for the related prompt and was given it (but not the exact one).\nAsked Kashish for KT for all this and setup, meanwhile I wrapped up the tag creation pending since the last few weeks. I added all the tag names to the tag DB, then also added code to update many to the db for all the regex matches. Then I moved all the tags to the production notebook along with documentation\tabout what the tag did and how. Hopefully it works flawlessly tomorrow.\nThen finally had a KT meet with Kashish at 5.30, he told me to clone the llm-agent-orchestrator repo, with some changes I could run it locally; it sends web hooks. With another change, I could pass in the previous part of the conversation and id get the LLM’s immediate next response. \nAs for the prompts, I’d have them in txt format in another folder, served through a yaml. But this repo needed a llm.json format, so I’d have to write a script to convert that yaml into the accepted json format. \nDid all that, then connected with Kashish again, he helped me configure some of the changes, then told me how to run the system basically:\nStart up the llm config server with uvicorn\nBoot up a redis server for storing redis dump\nRun client.py to actually interact with the server and get responses\n\nNow, the prev conv thing didn’t work despite a lot of debugging with Kashish(to his credit he was very patient with it all), but we at least got the web socket working which meant I could connect to Cekura for a full convo.\n\nNext I was to talk to Sampat for setting up Cekura. He showed me the interface and how you create Agents, and for your prompts you have Metrics and Evaluators based on your Simulation. I created my own agent, and saw how as an Evaluator, you basically prompt cekura how it should talk to your voice agent, what scenarios it should test, then at the end it gives you results. \nNOW, to connect your agent to cekura, you’d need a link, that link is added on cekura, but sampat configured it to include MY link, which here is an ngrok (my old friend) that I opened on my device exposing my running server. The result? I keep an ngrok link and customllm server running, and I can create and test scenarios on Cekura with my prompts and check changes. Whew.\n\nThat was a whirlwind of a day, I was in office till 9.30. But it felt good, doing programming, debugging, setting up servers, the rustic, old world, programming charm. All for me to make lil text changes to my prompts now and then. Heh.",
-        "timestamp": "2025-07-08T04:31:15.236Z",
-        "mood": null,
-        "tags": []
-      },
-      "2025-07-08": {
-        "content": "APIs broke randomly again in the morning. So after a bunch of random effort which I'd already put in yesterday and some more random bugs, it all works now. Kashish helped me get a phone number from retell AI whom I can chat with about my prompts. Fun! I also got my ngrok link connected in TrueFoundry having it point cekura to my local system, so I can write simulators to test out my voice agent's prompts. I add a scenario and info, and the cekura agent objectives to check, and it runs a simulation for that scenario. Kinda cool. There was also an all hands today and then dinner! CEO shouted out my doc in the all hands YAY. We had dinner at.....Ummrao, The Courtyard, The Marriott. WOAH. I'd always joked about being treated at the Marriott, but to be there, the experience - some inner kid inside me got fulfilled today :)",
-        "timestamp": "2025-07-09T04:47:44.087Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-07-09": {
-        "content": "Got assigned a buuuunch of stuff today. Made a doc to maintain simulation names and their scenarios. Was assigned prompts for a whole new client, so picked up the prompts from retell and put it in customllm locally. Had to properly plan out the structure, this was a simple RPC flow: verify the user and transfer to a human. I had to add another state to obtain a reference number and I made a mock server with FastAPI to query that, I think that'll be used in the dev environment too. Had to finish up 1FA testing but the API broke (again) and I was unable to debug that yet which is irritating. I have been assigned a bunch of new tasks which I havent gotten to yet. I need to make progress on my idea to build prompt tooling. Also I talked to the voice agent a couple of times lol, its eerie how good it is.",
-        "timestamp": "2025-07-09T19:17:37.116Z",
-        "mood": "Stressed",
-        "tags": []
-      },
-      "2025-07-18": {
-        "content": "Went in late to the office at around 1, goal was mainly to iterate on the ACA agent for the demo in the night. Rushabh gave a speech today, I helped him. There were nachos! Build your own nachos, fully vegan, sponsored by Rushabh. Nice it was. Anyways, I felt unproductive today. I made more changes to the ACA, its decent now other a few small bugs. Engineering Townhall today, last month I was a silent spectator, this time I was actively engaged. I was asked my thoughts about my role and all heh it was nice. Came home, added a final touch to the demo and pushed to dev. Sent Kashish the mock data, hope the demo worked.",
-        "timestamp": "2025-07-18T17:49:28.419Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-07-10": {
-        "content": "Started off as a kinda chill day but whaaaaat a twist by the end. Finished making some simple 1FA changes in the introduction like changing the AI description and waiting for sign of life before giving disclosure. Added some simple simulators for this. Got true foundry access (FINALLY), so I can redeploy the Cekura Retell bridge pointing to my local link when I want. Sent the FSA prompts as it was originally to Kashish, but he realised my step of adding a reference number for validation was good, so we proceeded with that. He added a transfer_call feature to the prompt and gave it to me to test. I added 6 simulations in cekura for this: it moooostly passed but the prompt for verify_user_details was hopelessly over engineered: I tried what I could to make it not leak the actual names, but it still wasn’t ironclad. But it was decent.\nI was also told to make similar RPC flow for STG, and at this point I’ve become so used to it that I spun up a local config in 10 minutes. \nBUT now while I was debugging this, the Bangalore thing…..well, okay you’ll remember it. So yeah, THAT happened for nearly an hour, flight, hotel booked. Ran home at 9.30, got ready and slept at 12 for my 6am flight to Bangalore. Oh, and I also got a carrot (like a negative remark) from the CEO for not answering a query of his he asked at 9 and then asked to complete at 11.45 when I said I’d do it tomorrow. Honestly had no idea what he wanted and did a shitty job of understanding it. But I have too much on my plate rn. Writing this from Bangalore. Wohoo!",
-        "timestamp": "2025-07-18T17:53:39.498Z",
-        "mood": "Tired",
-        "tags": []
-      },
-      "2025-07-11": {
-        "content": "Whew, hectic day. Caught the 6am flight, for which, btw, I had stretch economy, so like, a fancy seat, nice food, the Airhostess catered to me personally. It felt nice lol. So anyways I caught an Ola and got to the hotel at like 10, there wasn’t a room yet. So I freshened up and came to the office. Had to wait a bit but finally sat down at a desk and started working. Kashish came in a bit later at around 12, but he was nice. Our main focus was to get the FSA agent working properly for a demo, and the prompts weren’t great and the verify_user_details one was just horrible. There was a sync up call and then I went to the room, checked in and then came back. Was supposed to give a KT to Vansh who’s also joined th ProAgent team, but K told me to focus on the prompts instead and that he’d do it.\nAnd then, from around 4.30 to like 10, it was just a constant iteration of writing the prompts, testing it, it didn’t work, reiterating it, and then again. We tested it first on K’s laptop with my prompts which seemed to work except for the transfer_call, but when he added that everything else broke. SO yeah debugging all that, then I wrote a ton of scenarios for Cekura, had to iterate through them multiple times too. User had to verify 2 out 4 random fields- so I wrote 6 scenarios, one for each permutation. It was just kinda frustrating honestly, felt like being kinda stuck there. Got to the hotel at around 10.15 dead tired. But hey I got a taco (appreciation method on slack) so yay!…?",
-        "timestamp": "2025-07-18T17:54:06.545Z",
-        "mood": "Tired",
-        "tags": []
-      },
-      "2025-07-14": {
-        "content": "Got into the office at 11.30. So I was assigned some new tasks after Friday’s FSA demo. Also Vansh also started working on the Proagent team in the same role as me, so I had a meet with him to get his local system setup to test prompts. I also helped him setup a retell agent to call the llm agent with a phone number. \nSo the tasks I got today were for FSA only. I had to improve the Do Not Call feature, and secondly ensure that name would be verified first before any other fields in RPC.\nI found a bug in the DNC - the variable name for the initial phone number the user was calling from and the number in the user details context had the same variable - so it was being overwritten. So that had to be changed in the backend. And for the name thing the error happened on text but not on call.\nI learnt from Kashish how to create a new LLM Agent using the deployed utils link - I’ll use this agent as my own personal dev and migrate changes from this to the actual dev agent later. I started making documentation for this, I’ll need it sorely.\nAlso, found out how to read call logs through the monitoring tab on truefoundry. I have a dev instance which I can connect to my number on Retell, and then I can test my dev instance by calling that number. This whole arch is a lil confusing honestly. But yeah, twas today’s work.",
-        "timestamp": "2025-07-18T17:54:39.807Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-07-15": {
-        "content": "Walked into the office opened my laptop\tand saw so much work assigned to me. The CEO Shantanu asked me for updates for the 1FA name shorten and sign of life changes. He wants to perform AI A/B testing for that? Talked to Kashish and we don’t really have that capability yet.\nHelped Vansh setup a new LLM agent, something I learned yesterday.\nIterated on the 2 FSA things which was unfinished yesterday, DNC and Name verification. Kashish sat me down and told me to have a clear testing approach whenever there’s an identified bug, which I will list below:\n\n\nObtain information about an issue in the agent\nTry to replicate this issue locally, whether on text or on call. If the issue occurs on call then you have a transcript to analyse.\nIf the issue is not replicable, run sufficient number of call/text iterations to confirm the same.\nIf the issue is replicable, then identify the prompt sections causing the issues, update it and check again. Iterate this process.\nTo confirm the prompt changes solved the issue, run MULTIPLE text AND call iterations to confirm the same.\nEnsure these local calls are logged in Cekura, so that their transcript can be viewed later\nYeah so I followed this to fix the pesky name verification issue - added the specific line in the top guardrail of the general prompt. Then went with a v simplified DNC. So that’s DONE. Oh I wrote simulations also for it yesterday. \nShantanu (CEO) randomly called me to ask to look at a call made by the 1FA agent and how it performed. I wrote my analysis of it. Then he asked me to join a client call! It was with the 1FA execs and he introduced me as someone who’d be working on iteratively improving their agent. It was kinda woaaah being in a client call and seeing the edge of our product-like this is who we’re selling to. Was an interesting experience for sure.",
-        "timestamp": "2025-07-18T17:56:07.063Z",
-        "mood": "Stressed",
-        "tags": []
-      },
-      "2025-07-16": {
-        "content": "Didn’t really feel like I did much at all today especially compared to yesterday. Helped Kashish debug some code cause of which calls weren’t running parallelly on Cekura. Had some confusion about the cekura retell bridge and which number is what and how do you actually decide when to test which agent. Kashish explained it to me, and I made a (not half bad) architecture diagram. I realised that a phone number identifies an agent id which identifies an llm id. THATS how you distinguish between agents pushed to the dev production.\nThen I was also told I needed to make an agent for an ACA conference, it would be a v simple flow with predefined data, it would be a controlled demo. So I made a task and subtasks for myself, and started working on first deciding the states and flow.",
-        "timestamp": "2025-07-18T17:56:58.078Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-07-17": {
-        "content": "I go back today! Checked out of the room at 11 and came to office with luggage. I continued working on the ACA demo, I made 5 states, along with a negotiation state where the agent and user agree upon a final payment plan. It’s chill only cos it’s all dummy data. I called a few times and iterated upon the changes, the flow is clear at least. I was also shown some issues in 1FA and told that I would iterate upon it weekly to improve it. That’s it really, I left the office at 6 and travelled for a looooong time to come back to mah city. That concludes the Bangalore trip. Quite a whirlwind, but I really did learn a lot. Yaaaaaay",
-        "timestamp": "2025-07-18T17:57:08.406Z",
-        "mood": "Stressed",
-        "tags": []
-      },
-      "2025-07-21": {
-        "content": "Called in sick today. Blergh.",
-        "timestamp": "2025-07-23T04:06:45.475Z",
-        "mood": null,
-        "tags": []
-      },
-      "2025-07-22": {
-        "content": "Got an updated flow for the ACA demo agent, spent around an hour building its flow. Then got down to making prompt changes, made changes and iteratively tested by calling the number. Created a new llm id and linked it to the ACA agent so as to keep the previous changes intact. Had multiple calls to test the agent, changed some amount values to keep the math consistent. Pushed the config to dev, tested it out on livekit. Seems almost good to go. Also, looked at this platform called LangFuse today for prompt versioning and prompt management. I mean, sure, its needed for sure, but an entire tool for that? Don't know what I think of that.",
-        "timestamp": "2025-07-23T04:12:42.498Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-07-23": {
-        "content": "Today was another day of iterating on the ACA demo agent. Apparently, there were a few minor issues like allowing for a full card number of 15 digits and mentions of one time payments, that I fixed. I tried working a bit on the tooling I thought of a while ago, where I could pass in a conversation and be able to test it one by one. I quickly realised that vibe coding that as is wouldnt work, so I started writing my thoughts and documents on it first to build it properly. Also got some reviews for the FSA agent, didn't have much time to review it.\nFor the ACA demo, there was an email tool call to be added, that took a little debugging, then after a few more iterations and a lot of calls, it was in a finished state from my side. It got frustrating calling again and again and it felt kinda like grunt work, but at the end seeing the finished product, a working agent capable of handling complex situations that I built from the ground up, that did feel kinda nice.",
-        "timestamp": "2025-07-23T17:03:46.295Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-07-24": {
-        "content": "Well you would think that was it with the ACA agent, but today after some feedback I had to iterate again on the ACA agent, for trivial things. There was a particularly nasty one where the agent either:\n1) Thanked the user and stayed in the same state, and needed some response to transition\n2) Said \"I will move to the next step\" while doing so\nI had to essentially make it thank the user and silently transition to the next state. Took some wrangling and clever positioning of prompts but I did it. Today was like Self Care Day at cowrks, there were like painting sets and stuff and I put on a face mask in the meeting room ,that was fun. CTO tested the ACA, found it ok. I tried to start on a new agent's improvements but wasn't able to properly get started. As it stands I have finished the ACA demo agent, the demo is tonight in the US.",
-        "timestamp": "2025-07-24T18:12:34.345Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-07-25": {
-        "content": "Idk was an unproductive day glad its over glad its the weekend i need to recharge",
-        "timestamp": "2025-07-25T17:45:42.673Z",
-        "mood": null,
-        "tags": []
-      },
-      "2025-07-28": {
-        "content": "Went into work a little early to attend the weekly sprint. Got assigned work on 2 new agents, one is an old one in prod which needs to be updated somewhat, and another is a new agent which needs to go live this week and is based on FSA. I wrote some basic stuff on how to tackle each. My laptop properly crashed yesterday, so I started setting stuff up in a different laptop. Had some issues debugging my local setup so I just kinda left early. Got it working later in the night. Need to make serious progress on this tomorrow.",
-        "timestamp": "2025-07-29T04:39:24.687Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-07-29": {
-        "content": "Finally a nice clean good fun productive day! Used the new keyboard and got my mouse along too, was a good setup (just need my stand now).\nImmediately iterated on NES agent, changed the overall formatting a bit, made it markdown, maintained 1FA format but better more polished, wrote an updated verification prompt. I was happy to see how quickly I was working on the same thing which left me frustrated yesterday. I finished up prompt changes, tested on text, made a few calls, then added a few simulations on cekura and tested those too. Feel good bout this agent, I'll deploy it to prod today or tomorrow. \nI also started work on STG agent, which is similar to FSA but with a phone number as ref instead of reference number. FSA gave me a lot of pain that friday in bangalore with verification so will be interesting to see how that pans out. I attended the weekly cekura week, asked a question :)",
-        "timestamp": "2025-07-29T18:53:57.992Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-07-30": {
-        "content": "Dunno if im meant to have consecutive up and down days or what cause what was today. After I pushed the NES agent to prod, Kashish said these werent the right prompts- I'd taken em from the right agent, but made improvemtents - didnt want that right now, just to reproduce the prev agent's performance. Yeah I felt kinda bad about that but he was gracious about it. WRT 1FA, I also had to push the introduction change and the change where the agent waits for sign of life before giving disclosure. I hastily pushed this without testing, and an engineer caught it in staging :(. I went back to prompt iteration, made changes, tested heavily and then pushed again to prod. Finally got the config right with all the prod tool URLs, added em all myself. Had to revert the NES config. Kashish pushed 1fa to prod late night.",
-        "timestamp": "2025-08-01T04:45:50.817Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-07-31": {
-        "content": "Uh okay somewhat better day. I first iterated on the STG agent, turns out the reqs were easier than I thought, so built and tested that and finished it by 3. Then I made changes to NES config matching it to 1FAs config. Here too I had an oversight by not updating an edge to the state in the yaml. But still by 7, I was done with STG demo, pushed final NES changes to prod, and analysed some 1FA calls from the prod deployment that ran during afterhours. Atleast I accomplished my tasks, and a day early I feel, so yay! Have been given an outbound task, lets see how that fares.",
-        "timestamp": "2025-08-01T04:49:04.454Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-01": {
-        "content": "Good day! Was idling a bit at the start trying to figure out the requirements, but a call with Kashish later, I got my task. So there are currently 8 demo agents, I need to track their configs down and replicate them but for an outbound agent, it involves changing the inbound webhook to look for a to_number instead of a from_number, and some prompt changes which make the RPC simpler. I can fire a CURL request to place a call to my phone! But didnt make much progress on this, next week it is. Oh! and I also wrote a script that uses Cekura's API to copy all scenarios from one agent to another, this works. There's potential to expand it further, will look at it when I have time.\nThere was an informative session today explaining the Agent Orchestrator, basically the front audio part of the LLM orchestrator. Learnt a lot about how the entire system actually comes together, and there was a mini brainstorming session to find out shortcomings in this system. TGIF!",
-        "timestamp": "2025-08-01T17:44:34.240Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-04": {
-        "content": "Ok so I got more clarity about the outbound demo? Those 8 phone numbers? they all link to the same agent! Basically the number you call on is the account you are testing, that gets set by the inbound webhook. So nice, I only have to edit one config, I track the llm id using the number, copy it and start making changes. Since this is hitting demo APIs, I found that any number you call on, it gives you a demo account, which is nice cause for now I can call the agent and simulate an outbound call! Least until I get a proper number and can use the curl request to fire a call. My head was paining so left early at 6. There was an internal demo at night, which was....mid. James, the person demoing, had some thoughts about it not being outbound sounding, about the starting not being clear enough, and a couple of more issues. Tomorrow nights the deadline.",
-        "timestamp": "2025-08-06T05:40:41.210Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-08-05": {
-        "content": "Oh man it was a long long day but satisfying at the end. I came in at 10.30 am and left at 10pm. So first I started working on the outbound improvements: added an AI disclosure, gives answers about why its calling, more debt info given upfront, etc. It checks if the person seems to know the user then it asks to call them, else it says theres a personal business matter. There was a lot of iterating on this. Towards the evening I got the payment details so tested that too. Sumanyu had thoughts so incorporated that, iterated again and again. Elevenlabs had a bug where payment and dates had to be in text format, so had to ensure that. All in all, was a long day already when I left. Then at 11 I had a call with James who tested the agent and asked for a few more minor changes. Did all that by 12 for the demo. The final customer demo went well and I got a \"taco\" shoutout as appreciation, so yay!",
-        "timestamp": "2025-08-06T05:46:11.256Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-06": {
-        "content": "Yeaaah lazy day it was. Went in at 12, and didnt have an assigned task till like 3, but its fine. Went through a very well written article about voice AI and agents. Then I asked for the STG demo feedback and got it, minor changes other than a confusing one which would be asked again and revised. Also to maybe do is add filler text for the outbound demo. Yeah no lazy day but its fine after yesterday I think it's deserved.",
-        "timestamp": "2025-08-06T17:57:50.930Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-07": {
-        "content": "Started working on the STG changes. Made a good list of given feedback, and improvements I had noticed by looking at the calls. Started implemented them. Because of one feedback, I had to rewrite the entire flow of the RPC, so I hope it was worth it. I got a Google Voice number! No more pesky GMeets. In the evening there was a demo showcase of the ACA demo, of which I had built the proAgent part. It was nice.",
-        "timestamp": "2025-08-07T18:59:18.128Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-11": {
-        "content": "Not much done today. Didn't get any shiny new tasks, went through the email thread of 1fa to identify feedback about the prod agent and listed down recommendations to fix them.\nThere was a biweekly product sprint demo, where I presented the Outbound demo I made. It was decent, but there was a bug which had never occured before lol. It was fine tho, I got valuable implementable feedback, and the CEO praised it saying it was done in a very short turnaround time and its good.",
-        "timestamp": "2025-08-12T04:29:39.951Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-08": {
-        "content": "Not much. STG said not to verify with phone number, do with SSN instead. But that's not a reliable primary key, so the STG agent is on hold for now.",
-        "timestamp": "2025-08-12T04:30:35.431Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-08-12": {
-        "content": "Interesting day. I found out essentially that my main task rn is to work on enabling the 1FA agent for in hours too. Deadlines are set, so I started working, found a few issues. Office hours is defined at 9am-5pm Eastern time, but some agents like in Arizona have a different time. So I can't just pass in current_time simply into the context. Also the format is clunky, and there's no day of the week - Mon-Fri is business hours. These are non trivial non prompt changes.\nAlso, I made the change to the general prompt to make it take in and out business hours, but I feel it might perform better if there were 2 separate general prompts - one for in hours and one for out hours. These are interesting changes. Probably the biggest indication of my worth here at the company is if they let me work to help for *any* of these changes, or ask me to only focus on changing prompts. Hmm. Tomorrow will tell.",
-        "timestamp": "2025-08-13T04:32:33.011Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-08-13": {
-        "content": "Good day! So I deliberated about the best way to solve this in hours/ out hours issue with some form of code change. First order of business was to convert the current time in the context into a proper readable format and also add a day of the week variable. I was kinda surprised how readily Kashish agreed to this, he was like, yeah go ahead, raise a PR, it is a good change. So yesterday's ending thought went in a nice direction! Added the PR and it got merged into llm-orchestrator. My first code contribution! Was tiny, but I contributed, yaaay! I spent the rest of the day checking if this fixed the issue. Special scenarios seem to be handled, but some simulations where the user is confused makes the agent default to out of office hours state no matter what. Hm. More changes?",
-        "timestamp": "2025-08-18T06:35:28.684Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-14": {
-        "content": "I deliberated one of two ideas to make the agent better - either a toolcall within llm-orch that keeps passing business hours status to the llm, or just calculate is_business_hours from the time and pass to the prompt as a boolean?\nSimple won, easy. So I added a new variable in the context and raised another PR. However, some edge cases were still defaulting to out of hours. Then I found the issue. The prompts were written with an out of office agent in mind right, so small local mentions here and there of a default ooo agent prevailed over the general prompt guidelines? Solution? Add a rule to every state's guardrail, that seemed to override the local irregularities. So thats a nice temp fix! Need to test a bit more to confirm it holds",
-        "timestamp": "2025-08-18T06:40:24.745Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-15": {
-        "content": "Holiday today! Independence Day",
-        "timestamp": "2025-08-23T04:25:19.190Z",
-        "mood": null,
-        "tags": []
-      },
-      "2025-08-18": {
-        "content": "Was sick this weekend and was raining heavy today, so WFH today.\nLight work today, mainly focused on the 1FA business hours check, ensuring it works in all scenarios, writing simulations, etc.\nAdded a PR for business hours variable and adding prompt changes for that.  After a chat with Kashish, objective is to make it configurable from the llm config, since having it for agents other than the 1fa one isnt feasible. Best to add a flag to the config to enable or disable checking of business hours based on presence of that flag. Chill day.",
-        "timestamp": "2025-08-24T11:08:33.800Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-19": {
-        "content": "Was a VERY busy day despite it again being WFH. Started early, added the PR for the business hours. Kashish left a comment it should be able to modify start and end time and day of week from the config, might as well add an enable flag too. So I worked on that change, and updated the PR and got that pushed by evening.\nAlso got requirements regarding STG, but Sumanyu asked to focus on 1FA first. After a chat, it was decided I'll work on STG from tomorrow.\nThen I was in a host of calls, one to transfer the 1FA work to someone else working on it, then another to test a SIP URI to transfer to a human agent based on a hunt group API. Basically I ported my business hours code over to a prod config with a number with SIP trunking and tested its working and stuff, it went on for a while.",
-        "timestamp": "2025-08-24T11:15:24.678Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-08-20": {
-        "content": "Work from home, didnt work much. Started looking at STG agent.",
-        "timestamp": "2025-08-24T11:16:49.978Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-21": {
-        "content": "Mapped out the STG flow - it's interesting. Instead of just using the phone number for lookup which is not reliable enough, based on what brought the user here, different lookups are used.\nCalled cause of a debt letter? Lookup with file number, if thats not found check with SSN and zipcode\nCalled because of email? Lookup with email address\nEtc, so its interesting. Also more so because there would have to be an API that performs lookup with different sets of permutations of data fields, AND the LLM I believe would have to intelligently send only those arguments which are relevant to the lookup for that moment to the API. So it's interesting stuff.",
-        "timestamp": "2025-08-24T11:22:17.559Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-08-22": {
-        "content": "Made a mock API while the backend guy made the actual one. I wrote a databricks SQL query to get all the data points I need from the database for this mock api data! Then I made a FastAPI endpoint that does lookup for the fields based on which ones are present. Seems a pretty decent approximation of the real deal.\nThen I updated my setup to the latest commit, it had been a while. Debugged some issues, then I tested the API.\nAnd it worked! There were issues, yes, but the core logic of the LLM passing in certain arguments in certain scenarios to do the lookup worked. So that's encouraging.",
-        "timestamp": "2025-08-24T11:31:59.753Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-08-25": {
-        "content": "Chill day; didn't get the STG API yet, so was blocked on that front. Got tasks to setup 3 new agents; started work but was again blocked on those fronts. Made a couple of call flow diagrams and yeah, that was it.",
-        "timestamp": "2025-08-26T04:13:58.687Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-26": {
-        "content": "Not much at all, finally got the STG API and tested it, worked fine. There were a couple bugs that I discussed and addressed, like the actual account_id having a hyphen but the user wouldnt say it, so how to handle it. Think I tested STG a bit, and got requirements for a new tenant's agent, but that seemingly needs work and the data for it is not there yet, so yeah, not much today. Gave the STG agent number to test, with a test account. Had a productive meet with the other AI Engineers about standardization of prompts - how to unify sections across a prompt and across tenants.",
-        "timestamp": "2025-08-31T12:21:55.538Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-08-27": {
-        "content": "Holiday! Ganesh Chaturthi! Did get pinged a lot but ignored it for tomorrow.",
-        "timestamp": "2025-08-30T06:36:49.319Z",
-        "mood": null,
-        "tags": []
-      },
-      "2025-08-28": {
-        "content": "Based on the review given of the STG agent, I made tweaks and additions to the prompts, such as improved fuzzy matching for names, and responding more intelligently to the user at the start. I got a new requirement, to add a parameter to transfer_call function called discussed_account_id, essentially add whatever acc is is discussed in the convo, save it when its being transferred. But I found out the transfer tool being a general tool doesnt have functionality to add custom parameters, so I'll have to raise a PR for that tomorrow.",
-        "timestamp": "2025-08-31T12:28:38.717Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-08-29": {
-        "content": "Pretty long day. Started with finishing off any pending replies in email threads, pending emails, google doc comments, documentation etc.\nThen got to office and had a call with Kashish on how best to update the code to add a custom parameter for the transfer_call tool. I made the change and was testing it for various scenarios to check when the LLM passes in an account id to the parameter, and when it is blank. This is controlled by the parameter description. Then I save it to the context, which after call is picked up in the backend.\nThen had a 1hr meet as a follow up for Prompt Standardization, where each of us had picked 2 States to analyse across tenants and see if it was possible to standardize. Was a great discussion, we discussed a lot of improvements. We decided our goal is to migrate to a common Base Template with dynamic variables and configurable agent specific sections. Rest that is static combines the best of all agents. We also want to eliminate the LLM having to do computation and analysis.\nBased on this, I took some time and drafted an official Internal Note, without any AI help, which felt good, as a documentation piece.\nHad to stay up late tonight - very much missed that STG would be prod testing today and the number wasn't working.\nI hadn't applied an all agent fix ascribed yesterday; I did that. But for a long time, the API seemed to not be working. After some help debugging, I finally found out the API endpoint was configured wrongly, fixed that and got the number working again. The CSM tested the number and appreciated its working and performance, got a \"taco\" of appreciation for that.",
-        "timestamp": "2025-08-31T12:42:09.345Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-01": {
-        "content": "New office! Started work on UFL demo agent, had some random errors on my local setup, so I moved to finish off the STG work, where I had to make a code change to allow custom parameters for general tools and save transfer call arguments in context. I made the codechange and opened a PR. Got approved, merged it and then updated the deployment. STG was moving to staging env. Tested out the changes, they work great. Now when RPC is successful, a parameter called discussed_account_id is passed into the context. Nice.\nI also worked on the UFL agent later, basically it had NES style structure, so I ported that over and built the configs into a number. So I have a callable number now. The agent is a lil janky, but can be ironed out, and is fine for a demo.",
-        "timestamp": "2025-09-02T05:14:22.455Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-02": {
-        "content": "Was still facing errors in local deployment, so I worked on getting out the UFL agent i had worked out to a dev env so I could test it and release it as a demo version.\nWorked on making a doc for standardization of prompts, where I laid out the pipeline, architecture, implementation, effects, etc. It was a pretty comprehensive doc with a solid arch plan, and I even made a low level design on paper and wrote notes. Will discuss this soon with the team.\nOther than that there was a STG meet with the client where the requirements were simplified for phase 1: just ask for file number, and send the customer through after lookup. So need to change that.\nHave a lot of things starting to pile up, next three days will be crucial.",
-        "timestamp": "2025-09-04T04:18:33.142Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-03": {
-        "content": "Added finishing touches to the Standardization doc, added flowcharts.\nWorked on UFL, previously I had ported over a previous agent, but now I  modified the RPC acc to UFL's needs, and had a chat with the CSM about its requirements.\nTook a while to fix the local bug, but finally got it working, had some weird SSL certificate error.\nAttended a meet explaining the working and nomenclature of the database platform of the company named PIE.\nNeed to work and finish STG tomorrow, then take on TRK too.",
-        "timestamp": "2025-09-04T04:21:39.116Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-04": {
-        "content": "Got to work and immediately started work on STG agent simplification for Phase 1 - the agent now greets and immediately asks for file number or the other combos if that's missing. Once lookup is done, verify the name and that's it, no RPC, transfer it. It took a while to configure this since an entire state became redundant, but while its not a 100%, it's pretty good and robust I think. I also added some additional name verification security.\nAlso regarding the transfer, its a code change which hasnt been updated so pending on that. \nThen I took a look at the TRK agent, which post RPC is different from others - it just tells users about account placed and stuff.",
-        "timestamp": "2025-09-05T05:10:21.261Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-05": {
-        "content": "Had a productive discussion today about the standardization of prompts. I spearheaded the discussion with suggesting a new architecture and dividing the prompt into 4 blocks in increasing order of stochasticity. I shared the tenant config mockup and examples, and the conclusion I got the go ahead to implement a POC for this templating system. I plan to use JInja as a templating format to enforce conditional logic and variable injection. Is the first step towards a possibly massive contribution to the company's products. Hope it pans out.",
-        "timestamp": "2025-09-05T17:24:42.607Z",
-        "mood": "Excited",
-        "tags": []
-      },
-      "2025-09-08": {
-        "content": "Responded to a lot of mails today, mainly about weekly progress and queries about my tasks.\nStarted plotting the flow of the TRK agent, might have to make a new state for this and enable dynamic prompting, since this is a very conditional flow.\nAlso got requirements for a new demo agent for a tenant PPW, the domain on this is slightly different. They sent a few calls with different scenarios, I listened to them and made notes, how are they similar, and how different. We then decided which scenarios would we adopt to show our capability for this tenant.\nSo tomorrow is a long day in building out the demo for this agent.\nAlso STG was tested by the customers, they found it to be good, just a lil fast so I'll change the TTS to elevenlabs.",
-        "timestamp": "2025-09-09T03:45:10.659Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-09": {
-        "content": "Main focus today was the PPW demo\nDistilled requirements and domain knowledge from the call transcripts\nRead up on the website\nTook the initial demo agent, and started modifying prompts for this demo\nUpdated prompts, iterated, added sections to handle payroll deduction based queries from users.\nSent out the inbound agent for testing, outbound agent is still pending.",
-        "timestamp": "2025-09-10T03:30:48.359Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-10": {
-        "content": "There were some reviews of the inbound agent made yesterday, which I started working on. I made the data mathematically correct, added more context for the agent, softened the bankruptcy disclosure, strengthened name and SSN verification, added payment disclosure.\nOnce the inbound agent was solid, I moved to the outbound agent copying this over, to make minor changes in the greeting state and making the agent be more polite and apologetic.\nThen setup the outbound agent with Zaheer, having a number and a CURL request to fire the call to a particular number.\nAfter a lot of iterating and testing the agents were ready. At night I had a call with James, who would be demoing the agent. He tested it and liked it a lot.\nAnd the final demo went great! There were a few feedback points from the customer, but it was overall a very good showing.",
-        "timestamp": "2025-09-13T03:48:14.173Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-11": {
-        "content": "Came in early because I had to leave early today. My work today was on the TRK agent, to make a test agent for that. There was a new state would be dynamically decided based on the presence of a variable, but because there was no data for this tenant in the DB yet, I had to use mock data in the prompt itself. This meant I could not do dynamic routing, and after discussion with the PM I decided to make 2 agents, one which has placed agency info and one which does not.\nHaving faced this problem before too, I talked to the Backend Engineer about the using of mock data and how much effort is needed to insert new data into the dev db.\nTurns out, data with a schema other than that of the DB would require a lot of effort to sync with Postgres etc.\nSo I suggested an idea - why not have a mock server, somewhere where I can just upload JSON files with any schema for a tenant, and it would store it in JSON files and query from that as an API when I wanted to access it in the LLM. This would be for those new tenants whose data wasnt yet in our DB nor did we have their APIs. The benefit of this over putting data in the prompt was that while there was a latency tradeoff, you had more control here, could add multiple accounts and also query different APIs. Simply a more scalable approach. The engineer liked this approach and after conferring with the senior engineer, approved it and asked if I would work on it to implement it. I was so happy! Sounds like an interesting project for sure, which I think will help me and others for demos.",
-        "timestamp": "2025-09-13T03:57:00.756Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-12": {
-        "content": "Worked on TRK, tested the 2 versions of the agents, worked fine.\nSTG agent which I'd worked on last week went into prod testing, we tested a few accs, seemed to work, the transfer logic was solid too. Now we passed it over to the STG customer team for them to test it and give feedback, based on which I will iterate on Monday.",
-        "timestamp": "2025-09-13T03:58:52.023Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-15": {
-        "content": "Not too heavy. Main task was to check STG performance, I pushed some improvements to staging, there were additional feedback points which I was iterating on, then I finally pushed it to prod.",
-        "timestamp": "2025-09-16T18:15:37.619Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-16": {
-        "content": "Starting working on the mock API server, made a few APIs that would take in JSON for a tenant and store in JSON files, and I could query them from a generic lookup search API. But when I had a discussion with the Backend Engineer, he pointed out that I simply couldnt write to a file when this was deployed since it would remain in memory and be wiped when a new deployment would be made. The solution was to edit the JSON file and push the edit directly to Github, making the file write permanent and then triggering a new deployment with CD. So this is somewhat on hold for now.\nSTG prod testing by the customer team seemed to go well, lets see the verdict tomorrow.\nAlso made an outbound agent for RAC which only does name verification then passes it on.",
-        "timestamp": "2025-09-16T18:21:03.399Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-09-17": {
-        "content": "Mostly chill day. Mainly worked on UFL agent. Had sent out a basic version of it, which the CSM tested out with 8-10 calls and gave feedback about some points like accuracy of address verification,  payment full vs partial path, latency, etc. Apart from this, I also had to migrate the agent to GPT4o because Claude Sonnet 3.5 is getting deprecated soon.\nI made all these changes, but the migration to 4o was a bit challenging since the same prompt which worked in claude, 4o had trouble while transitioning to a new state.\nOther than that, at night I got the API integration for sending payment link to SMS, so ill work on that tomorrow.",
-        "timestamp": "2025-09-23T03:41:06.640Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-18": {
-        "content": "Worked on integrating the Interprose API with the agent, looking at parameters etc. Got that and the agent more or less ready by evening. There are still a few bugs which are because of gpt 4o. \nAlso, the STG agent I was working on for a month, finally went live!\nThis is Phase 1, where there'll be 12-15 calls a day. Phase 1.2 goes to 2000 monthly calls, and 1.3 is 9000 monthly calls. Woah.\nGot to take a moment here to pat myself on the back for some kind of recognition.\nI'll be monitoring these calls daily.",
-        "timestamp": "2025-09-23T03:48:50.608Z",
-        "mood": "Accomplished",
-        "tags": []
-      },
-      "2025-09-19": {
-        "content": "Monitored STG Calls, also had a call with Kashish who explained the steps to correctly test the performance of an agent when migrating to gpt4o, running parallel simulations on Cekura. \nThere was an updated set of feedback on the UFL agent, which I incorporated, post which I was to share the number with the customer. However, the gpt4o specific issues remain.",
-        "timestamp": "2025-09-23T03:52:06.271Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-22": {
-        "content": "Today onwards I have a standup everyday at 10.30 to discuss work done for agent engineering. There was also a discussion today pertaining to migrating agents, and I was given a few agents to migrate.\nOther than this, I worked on some feedback to STG, where if the user seems to be searching for their file number, you can prompt them to verify with their SSN+zipcode instead.",
-        "timestamp": "2025-09-25T04:13:03.243Z",
-        "mood": "Neutral",
-        "tags": []
-      },
-      "2025-09-23": {
-        "content": "Worked on STG changes, like mentioned yesterday. I was having issues with prompting after silence, the LLM did not keep quiet and spoke out the next part. I then decided to switch to a single state for ease of use for this Phase 1: this seemed to work pretty well, need to test it tomorrow.\nAlso worked on an integration that used the Cekura API to pull in stats from STG production calls, like total calls made, transferred, user/agent hangups, avg time etc on a daily basis. The idea was to run this daily to automate calculating basic stats and send it as a notification on Slack to keep everyone informed and aware, ready if anything goes wrong.",
-        "timestamp": "2025-09-25T04:16:50.183Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-24": {
-        "content": "Finished STG changes, added it to test number and ran tests - seems to be all OK.\nThen I worked on the STG stats integration - I polished the script to calculate stats for the previous day, added a section to generate an email draft to send to the customer using these stats, and then published this file on PyHub(aws cloud). I also setup a cronjob for this to run daily at 2pm IST, sharing stats of prev day.\nNext, I worked on UFL, I looked at how dynamic prompts were implemented in 1FA, and I added the same to my yaml here. Since it was based on the availability of SSN, DOB and Address, there were 8 possible prompt scenarios which I wrote out, and then had to make changes to the yaml_to_json.py file to handle this new format. Did that, and confirmed it worked; if there was no SSN data, the flow is routed to the prompt asking for DOB+Address.\nHowever this just did NOT work for gpt4o, and it worked perfectly for Claude sonnet 3.5 . Something to monitor tomorrow.",
-        "timestamp": "2025-09-25T04:22:15.067Z",
-        "mood": "Focused",
-        "tags": []
-      },
-      "2025-09-25": {
-        "content": "Planned multiple things, but majority of the day went in testing and hammering gpt 4o. What I assumed to be a straightforward prompt fix turned out be very stubborn, as gpt REFUSED to transition to the next state after the dynamic prompt state. It was either aggressively triggering call end, or staying in the same state. This was a reproducible unfixable issue no matter what prompt change. I tried changing the state change tool call description to be more robust but to no avail. Claude sonnet 3.5,3.7 and 4 worked perfectly. 4o seems just not good enough for more advanced tool calling.\nOther than that, I pushed for a review of the mock server code I had written with the Backend engineer. He reviewed and modified it, basically built on it and made it prod ready, and created a repo for it.\nI also started work on a new demo agent- this is a general purpose agent to be built for delinquent loan collections in the subprime auto finance sector. This mock server would be helpful for that.",
-        "timestamp": "2025-09-28T18:09:50.920Z",
-        "mood": "Frustrated",
-        "tags": []
-      },
-      "2025-09-26": {
-        "content": "Updated the interesting prompts repository with the prompt to have custom speech after silence - this was in the STG agent and others did not know this could happen.\nI then worked on the Subprime Auto Prompts, adapting them from the PPW demo but adding the auto loan spin and specific elements to it.\nAs for the UFL agent, since 4o proved to be a dead end for now, switched to claude sonnet 3.5 since we would have customers testing it.\nThe mock server went live! Tested it out, this will be good. Now for a new demo I just have to add sample data as json in github, and I can query it with APIs through the mock server URL.\nOnce I got more clarity about Subprime Agent, I realised there would need to be a mock inbound Webhook API call too to simulate fetching user details with incoming phone number.\nSo I opened a PR to add an API to the mock server that searches up consumer and account details based on incoming phone number, flattens them into a single list of dynamic variables, which once queried by the LLM, can be injected right into the prompt.\nThe PR was submitted and accepted! I feel happy because that was my biggest code contribution so far.\nI need to make the STG reporting automation more robust, will work on that next week.",
-        "timestamp": "2025-09-28T18:17:18.833Z",
-        "mood": "Accomplished",
-        "tags": []
-      }
+  "notes": {
+    "2025-06-16": {
+      "content": "Day 1! Orientation session about the company, its values, its customers\nSecond half of the session about the services offered by company\nGot access to work tools (Slack, Asana) and misc payroll, insurance etc. Got goodies too!",
+      "timestamp": "2025-06-21T12:08:23.197Z"
     },
-    "weeklySummaries": {
-      "2025-W25": "The first week involved onboarding, obtaining necessary software access (AWS, Databricks, GitHub), and familiarizing oneself with internal tools (Bifrost, Heimdall, Matsya).  Progress on adding two new tags (Line of Credit and Car Loan) for Curo Financial involved developing regular expressions; the Line of Credit regex is largely complete, while the Car Loan regex requires further refinement due to limitations imposed by positive/negative matching requirements.  Challenges included initial regex failures and a dependence on clarifying client requirements.  Despite some initial idling, significant progress was made in setting up the local development environment, understanding existing tag functions, and beginning the implementation of the new tags.\n",
-      "2025-W26": "Successfully integrated a new metadata ingestion pipeline, processing 42,000 entries since June 1st.  This involved daily downloading and deduplicating Excel files from SFTP/S3, storing data in MongoDB, matching records based on TCN_ID across different databases, and updating both dialer and call metadata, reflected in the ProInsight UI after frontend configuration adjustments. A daily automated script is now in place.  Challenges included resolving naming inconsistencies across databases and a current UI bug displaying duplicate metadata.  Additionally, progress was made on refining regex rules for data tagging, including adding a new rule for Auto Loan identification and creating rules for Customer Self Payment and High Risk Language using Claude.  Future work involves addressing the UI bug and exploring less restrictive methods for regex-based tagging.  A local tunneling setup guide was also created.\n",
-      "2025-W27": "This week saw significant progress in integrating and testing LLM-powered voice agents.  Despite initial concerns about a purely NLP-focused role, the author successfully set up a local development environment encompassing Redis, a Uvicorn server, and a webhook connecting to Cekura for voice analysis.  A key achievement was establishing a system to test LLM responses by simulating previous conversation segments, though this currently requires cumbersome JSON editing, presenting an opportunity for future tool development.  Challenges included initial difficulties debugging the conversation simulation and navigating the Cekura interface.  The author also created and documented a comprehensive tag database and  successfully automated a weekly Excel report generation.  Finally, the author's prompt engineering document received unexpected positive attention from the CEO, necessitating further refinement.\n",
-      "2025-W28": "The week involved significant progress on voice agent simulation and prompt engineering, including setting up a local development environment with a mock server and integrating it with TrueFoundry via ngrok for testing. A document for maintaining simulation names and scenarios was created, and prompts for a new client were integrated. A key achievement was successfully connecting the local system to Cekura for voice agent prompt simulation. However, progress was hampered by recurring API issues that required substantial debugging effort. Time was also lost due to feeling unwell one day. Despite these challenges, the week ended on a high note with recognition from the CEO during an all-hands meeting and a celebratory dinner.\n",
-      "2025-W29": "On July 14th and 15th, 2025, progress was made on the FSA project, specifically improving the Do Not Call (DNC) feature and name verification process. A bug was identified and resolved in the DNC feature related to variable name conflicts, and the name verification process was refined, including adding a specific line to the general prompt's top guardrail. A simplified DNC was also implemented and simulations were written for it. Challenges included the initial setup of a new LLM agent for Vansh, understanding the complex architecture for testing, and the need for AI A/B testing capabilities which are currently unavailable. Achievements include assisting Vansh with his setup, fixing the name verification issue, creating documentation for LLM agent creation, learning to read call logs, and participating in a client call with 1FA executives to discuss agent improvements. The CEO requested updates on the 1FA name shorten and sign of life changes, and analysis of a ",
-      "2025-W30": "The week focused on developing and refining the ACA demo agent, resulting in a functional agent capable of handling complex scenarios. Progress included building the agent's flow, implementing prompt changes, adding an email tool, and iteratively testing and debugging through numerous calls. A challenge was the repetitive nature of testing calls, though the final product was rewarding. Initial exploration of LangFuse for prompt management raised questions about its necessity. A day was also spent documenting and planning a new tooling idea for conversation testing after initial \"vibe coding\" proved insufficient. Minor bug fixes were addressed in the ACA demo agent, and the FSA agent was reviewed.\n",
-      "2025-W34": "This week focused on implementing and refining a business hours check for 1FA, resulting in a PR that was updated to include configuration options for start/end time, day of week, and an enable flag based on feedback. Progress was made on understanding STG requirements, though prioritization shifted to 1FA based on team discussion. A significant portion of time was dedicated to transferring 1FA responsibilities and testing SIP URI routing to human agents using the business hours logic in a production environment. Challenges included adapting the business hours check to be configurable via the LLM config and ensuring its functionality across various scenarios, leading to simulation development.\n",
-      "2025-W33": "The week focused on enabling the 1FA agent for in-hours operation, involving code contributions to the llm-orchestrator to improve time and day context. A key achievement was the successful merge of a PR adding readable time format and day of the week to the context. Challenges arose from agents in different time zones and the agent defaulting to out-of-office behavior in specific scenarios. Progress was made in addressing these issues by implementing a temporary fix involving guardrail rules to override local prompt irregularities, though further testing is required. Additionally, feedback was gathered and incorporated from a product sprint demo of an outbound demo, which received positive recognition despite a minor bug.\n",
-      "2025-W32": "Progress was made on STG changes and outbound improvements, including adding an AI disclosure, providing more debt information, and addressing user identification. A Google Voice number was acquired, and the ACA demo's proAgent part was successfully showcased. Challenges included a confusing feedback point on STG demo, a bug in Elevenlabs requiring specific formatting, and initial feedback on the outbound demo suggesting it didn't sound outbound-like enough. A potential roadblock emerged regarding STG verification using SSN instead of phone number, raising concerns about reliability. Despite some long days and iterative development, the final customer demo was well-received, resulting in positive recognition.\n",
-      "2025-W31": "The week saw progress on multiple agent projects, including NES, STG, and 1FA, alongside initial work on an outbound agent. Achievements included building and testing the STG agent, pushing NES changes to production (though needing reverts and adjustments), deploying 1FA updates with some initial staging errors, and creating a script to copy Cekura scenarios between agents. Challenges involved prompt iterations, configuration errors leading to rollbacks, debugging local setups, and navigating evolving requirements. The week concluded with a better understanding of the Agent Orchestrator and a brainstorming session to identify potential improvements.\n",
-      "2025-W35": "This week saw progress in prompt standardization and agent functionality, alongside addressing critical production issues. Achievements include drafting an internal note on prompt standardization strategy aiming for a common base template with dynamic variables, debugging and resolving a broken production testing number by identifying and correcting a misconfigured API endpoint (earning positive feedback), and improving the STG agent prompts with enhanced fuzzy matching and intelligent user responses. Challenges included initial blockage on STG API access, delayed deployment of an agent fix, and the need to add custom parameters to the general transfer_call tool. Progress was made on adding a custom parameter to the transfer_call tool, with code changes and testing completed, and initial setup work was started for three new agents, although blocked by data availability. The team also held productive discussions on prompt standardization, focusing on unifying sections across prompts and tenants.\n",
-      "2025-W37": "This week involved significant progress on multiple agent projects. The successful PPW demo was a major achievement, incorporating payroll deduction handling and positive customer feedback, while STG testing revealed a need for TTS adjustments. Development of the TRK agent faced challenges due to missing tenant data, leading to a workaround involving two separate agents and a proposal for a mock server to handle dynamic data with varying schemas, which was approved for implementation. Work on inbound and outbound agents included refining data accuracy, adding context, improving politeness, and setting up integration with Zaheer for call triggering, culminating in a successful demo and positive feedback.\n",
-      "2025-W36": "Over the past week, significant progress was made on agent development and standardization efforts.  Achievements include simplifying the STG agent for Phase 1, porting and modifying the UFL agent to meet specific requirements and create a demo version, and successfully implementing a code change for custom parameters in general tools. A comprehensive document outlining a new prompt standardization architecture was also created, presented, and approved for a POC using Jinja templating. Challenges encountered involved resolving local deployment errors, addressing SSL certificate issues, and adapting to evolving STG agent requirements.  The focus moving forward is on completing the STG and TRK agent modifications, and developing the prompt standardization POC.\n"
+    "2025-06-17": {
+      "content": "Got to understand working of internal tools, mainly Bifrost, Heimdall and Matsya\nBifrost is comprehensive data ingestion pipeline, Heimdall is autodeployment and Matsya is config tool for data ingestion. Got software accesses (aws, databricks, github etc)\nFingerprint works!\nTO DO: Watch KT video",
+      "timestamp": "2025-06-21T12:09:57.908Z"
     },
-    "monthlySummaries": {},
-    "moodHistory": {
-      "2025-06-30": "Neutral",
-      "2025-07-01": "Neutral",
-      "2025-06-27": "Excited",
-      "2025-06-26": "Accomplished",
-      "2025-06-25": "Neutral",
-      "2025-06-24": "Accomplished",
-      "2025-06-23": "Accomplished",
-      "2025-06-20": "Focused",
-      "2025-06-19": "Focused",
-      "2025-06-18": "Neutral",
-      "2025-07-02": "Frustrated",
-      "2025-07-04": "Excited",
-      "2025-07-07": "Tired",
-      "2025-07-08": "Accomplished",
-      "2025-07-09": "Stressed",
-      "2025-07-18": "Neutral",
-      "2025-07-10": "Tired",
-      "2025-07-11": "Tired",
-      "2025-07-14": "Focused",
-      "2025-07-15": "Stressed",
-      "2025-07-16": "Neutral",
-      "2025-07-17": "Stressed",
-      "2025-07-22": "Focused",
-      "2025-07-23": "Frustrated",
-      "2025-07-24": "Frustrated",
-      "2025-07-28": "Frustrated",
-      "2025-07-29": "Accomplished",
-      "2025-07-30": "Frustrated",
-      "2025-07-31": "Accomplished",
-      "2025-08-01": "Accomplished",
-      "2025-08-04": "Frustrated",
-      "2025-08-05": "Accomplished",
-      "2025-08-06": "Neutral",
-      "2025-08-07": "Accomplished",
-      "2025-08-11": "Neutral",
-      "2025-08-08": "Frustrated",
-      "2025-08-12": "Focused",
-      "2025-08-13": "Accomplished",
-      "2025-08-14": "Accomplished",
-      "2025-08-18": "Neutral",
-      "2025-08-19": "Focused",
-      "2025-08-20": "Neutral",
-      "2025-08-21": "Focused",
-      "2025-08-22": "Accomplished",
-      "2025-08-25": "Neutral",
-      "2025-08-26": "Neutral",
-      "2025-08-28": "Focused",
-      "2025-08-29": "Accomplished",
-      "2025-09-01": "Accomplished",
-      "2025-09-02": "Focused",
-      "2025-09-03": "Focused",
-      "2025-09-04": "Focused",
-      "2025-09-05": "Excited",
-      "2025-09-08": "Focused",
-      "2025-09-09": "Focused",
-      "2025-09-10": "Accomplished",
-      "2025-09-11": "Accomplished",
-      "2025-09-12": "Focused",
-      "2025-09-15": "Accomplished",
-      "2025-09-16": "Frustrated",
-      "2025-09-17": "Focused",
-      "2025-09-18": "Accomplished",
-      "2025-09-19": "Focused",
-      "2025-09-22": "Neutral",
-      "2025-09-23": "Focused",
-      "2025-09-24": "Focused",
-      "2025-09-25": "Frustrated",
-      "2025-09-26": "Accomplished"
+    "2025-06-18": {
+      "content": "Wasnt assigned task yet, was mostly idling till 2-3\nGot tech demo about ingestion pipeline, looked at pyhub nb structure \nWatched KT videos about tags, (the term for the scoring based on tags i forgot) mainly",
+      "timestamp": "2025-06-21T12:10:09.244Z",
+      "mood": "Neutral"
     },
-    "techStack": {
-      "mongodb": 5,
-      "python": 3,
-      "rest": 91,
-      "slack": 20,
-      "git": 30,
-      "redis": 6,
-      "aws": 9
+    "2025-06-19": {
+      "content": "Got started on tasks today (Rushabh assigned lol)\nNeed to add 2 new tags to a customer Curo Financial\nDownloaded aws cli and ssm, configured local tunnelling setup and accessed curof’s notebooks\nMade a copy and looked at existing tag functions\nStarted working on Regex for Line of Credit tag, built a regex, found caught tag ids and checked if they were relevant\nAlso started on Car Loan, work more on it tomorrow",
+      "timestamp": "2025-06-21T12:10:37.035Z",
+      "mood": "Focused"
     },
-    "insights": {
-      "lastGenerated": "2025-09-28T18:19:12.326Z",
-      "comprehensive": "## Executive Summary\n\nThis individual demonstrates strong technical skills and a proactive approach to problem-solving in the realm of agent engineering. A recurring theme is the frustration experienced with GPT-4o's unreliability compared to Claude, alongside a consistent drive to automate and improve existing processes. The focus should be on streamlining workflows, mitigating GPT-4o related issues, and strategically prioritizing tasks for optimal impact.\n\n## Key Accomplishments\n\n*   **Mock Server API Contribution (2025-09-26):** Developed and implemented a mock inbound Webhook API call to simulate fetching user details, a significant code contribution that was promptly accepted. *Impact: Enables more realistic testing and development of agent interactions.*\n*   **STG Reporting Automation (2025-09-24):** Successfully automated the generation and distribution of daily STG stats via email. *Impact: Improves transparency and awareness of agent performance, enabling faster response to issues.*\n*   **STG Agent Launch (2025-09-18):** Successfully launched Phase 1 of the STG agent after a month of work. *Impact: Delivers a functional agent that is ready for deployment and scaling.*\n*   **Prompt Standardization Architecture (2025-W36):** Created and presented a comprehensive document outlining a new prompt standardization architecture. *Impact: Promotes consistency and efficiency in prompt development across different agents.*\n*   **Resolved Production Testing Number (2025-W35):** Debugged and resolved a broken production testing number by identifying and correcting a misconfigured API endpoint. *Impact: Ensured the continuity of testing and development processes.*\n\n## Critical Challenges\n\n1.  **GPT-4o Unreliability:** Repeatedly encounters issues with GPT-4o's inconsistent behavior and inability to handle complex tool calling, leading to wasted time and the need to switch to Claude. *Root Cause: GPT-4o's model architecture or training data may not be as suitable for certain conversational AI tasks compared to Claude, or could involve undiagnosed integration issues.*\n2.  **Data Availability and Mock Server Dependencies:** Reliant on external data sources and the mock server for agent development, leading to delays when data is missing or the mock server needs modifications. *Root Cause: Inadequate data infrastructure and a lack of readily available data for testing and development, creating a bottleneck in the workflow.*\n3.  **Iterative Feedback Loops & Shifting Priorities:** Experiences frequent feedback cycles and changes in project priorities, potentially impacting overall efficiency and focus. *Root Cause: Fluid project requirements and evolving priorities impacting workflows.*\n\n## Behavioral Patterns\n\n*   **Proactive Problem Solver:** Actively seeks solutions to challenges, such as developing workarounds for data limitations and automating reporting processes.\n*   **Code Contributor:** Confidently contributes code to projects, as demonstrated by the mock server API and STG reporting automation.\n*   **Documentation and Standardization Advocate:** Creates documentation and proposes standardization initiatives, showing a commitment to knowledge sharing and efficiency.\n*   **Frustration with GPT-4o:** Expresses frustration with GPT-4o's performance issues, indicating a need for more reliable tools or strategies for mitigating its limitations.\n*   **Driven to Automate:** Proactively seeks opportunities to automate repetitive tasks, such as reporting and data processing.\n\n## Strategic Recommendations\n\n1.  **Develop a GPT-4o Mitigation Strategy:** Document specific GPT-4o failure modes and implement a checklist of tests to run *before* committing to GPT-4o in a new agent. Include a fallback mechanism to Claude when GPT-4o proves unreliable.\n2.  **Prioritize Mock Server Enhancements:** Advocate for a dedicated resource to maintain and enhance the mock server, including features like data generation and version control.\n3.  **Establish Clear Project Prioritization Criteria:** Work with stakeholders to define clear criteria for prioritizing projects and tasks. Implement a system for managing changes in priority to minimize disruptions.\n4.  **Streamline Data Access:** Collaborate with data engineers to improve data availability for agent development and testing. Explore options for creating synthetic data sets to reduce reliance on external sources.\n5.  **Optimize Feedback Loops:** Establish clear expectations for feedback cycles and ensure that feedback is specific, actionable, and timely. Consider incorporating automated testing and validation to reduce the need for manual feedback.\n6.  **Time Blocking:** Implement time-blocking strategies to focus on high-priority tasks and minimize distractions. Allocate specific blocks of time for coding, testing, and meetings.\n7.  **Communicate Technical Limitations:** Proactively communicate the limitations of GPT-4o and other tools to stakeholders, managing expectations and influencing project decisions.\n\n## Growth Opportunities\n\n1.  **Agent Orchestration & Architecture:** Deepen understanding of agent orchestration principles and architecture to design more robust and scalable solutions.\n2.  **Prompt Engineering Expertise:** Expand knowledge of advanced prompt engineering techniques, including few-shot learning, chain-of-thought prompting, and prompt optimization for different LLMs.\n\n## 30-Day Focus Plan\n\n1.  **GPT-4o Mitigation Strategy (Week 1):** Document GPT-4o failure modes and create a fallback mechanism to Claude.\n2.  **Mock Server Enhancement Proposal (Week 2):** Develop a proposal for mock server enhancements, including data generation and version control.\n3.  **Data Access Improvement Plan (Week 3):** Collaborate with data engineers to improve data availability for agent development and testing.\n4.  **Project Prioritization Criteria (Week 4):** Work with stakeholders to define clear criteria for prioritizing projects and tasks.\n\n",
+    "2025-06-20": {
+      "content": "Continued working on the 2 tags\nChecked out examples for Line of Credit tag, seems okay unless they want mention of payment\nFor car loan the initial regex was faulty, adding a positive and negative regex very much limits the examples tho. Depends on the requirements again. \nAttended engg sprint",
+      "timestamp": "2025-06-21T12:10:52.011Z",
+      "mood": "Focused"
+    },
+    "2025-06-23": {
+      "content": "Got the temporary laptop, setup stuff on it, wrote a fairly decent doc explaining setup of local tunnelling to PyHub using aws cli; maybe petition adding it to company documentation?\nWorked on other tags' regex rules. The Auto Loan took a while, because I found out an additional way its present in the data so i added one more rule. Using a positive and negative regex is very limiting, so need to check the values with the CSM. \nAlso added regex rules for Customer Self Payment and High Risk Language. Used claude to generate rules and get a decent number of hits. Made a useful function that demos some hits and which section caused it to be captured. Hopefully work on new task tomorrow.",
+      "timestamp": "2025-06-23T18:18:21.682Z",
+      "mood": "Accomplished"
+    },
+    "2025-06-24": {
+      "content": "Big things done today!\nSo, there's a company who normally gets all of their data through TCN, but now they want to get some additional metadata fields which they provide through an excel upload on SFTP nightly. So what I had to do was download the excel files daily uploaded on S3, then store the values into a mongodb collection. There are a lot of redundant files, so I had to scan for duplicates. Once this is filled, I match the values of this collection with the ingested db data. There's a common TCN_ID which I had to locate for both collection as they had diff names. I map the additional metadata fields to the ingested collection and append to both the dialer and call Metadata. The dialerMetadata is linked to the ProInsight UI, so after I make some tweaks to the frontend config to allow these fields, the new metadata fields are reflected in the UI now. I did it for all past data from June 1, and now I wrote a script to perform this action daily. Fun stuff!\nFrom June 1 to June 24, there were around 42k entries which I mapped to past June data.\nOne minor bug: \nThe forwarding metadata is reflected twice on the UI for some reason, need to check it out.",
+      "timestamp": "2025-06-25T04:04:56.205Z",
+      "mood": "Accomplished"
+    },
+    "2025-06-25": {
+      "content": "Kinda chill day. Got assigned 2 tasks.\nFirst one was that, for a company, there are ProNotes db collections, so I had to pick up fields from that and make an excel, and automate sending a mail with the excel every monday. There were 2 fields Autonote and Agent Note and they also wanted differences between them, luckily there was already a field in the schema capturing that. Sent a sample excel for analysis, waiting for more.\nAnother task was to seemingly transfer data to Databricks. Needed more clarification on this, so pushed it to tomorrow.",
+      "timestamp": "2025-06-26T04:32:01.352Z",
+      "mood": "Neutral"
+    },
+    "2025-06-26": {
+      "content": "Week 2 chugging along to an end. Today, I debugged an issue with SNA where only around 1k/4k calls were being updated with metadata for that day. Took some time but it was a simple fix and that number got correctly pushed up to 2.9k calls for that day.\nAlso added documentation for the various Tags I had worked on previously, and reviewed them once and sent the remaining number heuristics to the CSM.\nFinally, for the ProNotes task, the request was to also add Note Editing Time, for which I'm not sure but I made a makeshift time field with 2 other time based fields present in the metadata. Need to identify its veracity but it seems a decent heuristic at least.",
+      "timestamp": "2025-06-27T04:12:05.072Z",
+      "mood": "Accomplished"
+    },
+    "2025-06-27": {
+      "content": "Friday, and what a Friday! So, today I had a meeting with the CTO and my manager. They're putting me in a different direction than that of a typical Solution Engineer daily task. \nPerhaps they looked at the pprojects in my resume? Anyways, so they have a product called ProAgent which is an end to end autonomous agent system from loan collection to schedule creating and getting payments. They want me to read up on prompt engineering techniques for a while then jump into the codebase and look at improvements and optimizations for ProAgent, the improvements in prompts, the function calling and stuff. This sounds very interesting and a lot closer to what I've worked on and had hoped to work on here. Hopefully I get to fulfill a good chunk of the \"Engineering\" part of prompt engineering, is all :)",
+      "timestamp": "2025-06-28T14:23:58.041Z",
+      "mood": "Excited"
+    },
+    "2025-06-30": {
+      "content": "Worked from home today cause I had nasty chest congestion in the morning. Best thing about the day was that I got a lot of sleep and chilled, but I didnt do much work at all as a result. I modified the excel automation script a bit and sent an excel of all notes from june 1st to june 27th, with edits and editing time. I also worked a lil bit more on the entire prompt engineering exercise, but not much.",
+      "timestamp": "2025-07-01T17:33:54.846Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-07-01": {
+      "content": "Another kinda meh day. I did have some fun struggling with the excel automation, basically figuring out what time to set it to (had set it to MONGODB's timezone instead of the clients lol) then settled on utc time. Then another challenge was how to automate this, so for this I had to set up a cronjob, I did this by scrounging around for the right python env then doing crontab -e and added my job to run the python file to send an excel every Monday at 9AM. That was kinda fun.\nI added some documentation to my prompt engineering doc(eh), then I got to look at the actual prompts being used in ProAgent and got a little used to the codebase. Next I gotta see what I do with these prompts.",
+      "timestamp": "2025-07-01T17:41:28.138Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-07-02": {
+      "content": "Yeah wasn't a very productive day. Spent the first half looking at the prompts again. Made a mock ProAgent setup on cursor to run text wise but it wasn't anything great. Looked into the prompt explainer idea Ive been ruminating on.\nHad a talk with Sangram and Kashish(engineer working on ProAgent) about my role, it would be to take up issues faced currently by the agent and tweak and modify prompts to improve it. Making use of cekura for testing voice agents. The talk felt kinda not great to me making me feel like I'd not be doing any coding just continously tweaking stuff in Natural Language. Let's wait and watch I guess?",
+      "timestamp": "2025-07-04T05:02:20.811Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-07-04": {
+      "content": "Was another interesting day after yesterday. Had a sync up call with Kashish in the morning, discussed the setup yesterday, and with a simple fix, I could now plug in previous conversations till a point and have the LLM speak the next sentence. Great for testing. \nOooooh also so the doc I made about Prompt Engineering was reviewed by the CEO?? And he left comments?? And shared it on slack?? Like omg I didnt expect that lmao now I'd need to actually put in some effort on it. But fine.\nThen I actually understood my tasks properly. I had to work with the prompts to:\nMake convenience fees sound positive\nAdd a tool call to the config to get which kinds of payment info was available and have the LLM speak that.\nAlso look at 3 different disclosure tool calls to pick which works best: essentially do you just give the info to the LLM again or hope it remembers from the previous state.\nSo the thing is now to get to a part in the previous convo, I have to edit a tedious JSON to simulate the convo till there. Which is cumbersome. But I have the chance to tool it up! To be the guy who makes it so that the guy after me doesnt deal with code, only text (Basically what I worried I would be). So the setup *works* now, but its a haphazard jumble of patched up from the repo running locally. Which I like, because I can make improvements not just for myself but as legit tools. So that seems promising. I liked the entire setup thingy from booting up redis to a uvicorn customllm server to a webhook that connects to Cekura for voice analysis - im in the TECH side of it and I like it. OH and I had 4 GREAT slices of pizza yesterday. Fun!",
+      "timestamp": "2025-07-05T10:01:07.314Z",
+      "mood": "Excited",
+      "tags": []
+    },
+    "2025-07-07": {
+      "content": "Felt sick all yesterday night, wasn't sure if I should go to office today. Finally decided to go in at 12. Didn't really do much in terms of work today, looked at including the disclosure statement in the payment on call prompt, there were like 10 issues with the API call which was out of my hand, I fixed the prompt as good as I could. Couldnt work on my prompt engg doc or tooling either, felt sick-ish. BUT by far highlight of the day was that for apparently world chocolate day they brought out a chocolate fountain and like vaaaaarious different kinda sweet things like smores, cookies, chocolate, brownies, etc etc. I ate so much sweet. Yay.",
+      "timestamp": "2025-07-08T04:24:54.968Z",
+      "mood": "Tired",
+      "tags": []
+    },
+    "2025-07-03": {
+      "content": "Got access to cekura, went through it a bit. I was mentioned on a task where a customers agent wasn’t being very subtle with the convenience fees. I asked for the related prompt and was given it (but not the exact one).\nAsked Kashish for KT for all this and setup, meanwhile I wrapped up the tag creation pending since the last few weeks. I added all the tag names to the tag DB, then also added code to update many to the db for all the regex matches. Then I moved all the tags to the production notebook along with documentation\tabout what the tag did and how. Hopefully it works flawlessly tomorrow.\nThen finally had a KT meet with Kashish at 5.30, he told me to clone the llm-agent-orchestrator repo, with some changes I could run it locally; it sends web hooks. With another change, I could pass in the previous part of the conversation and id get the LLM’s immediate next response. \nAs for the prompts, I’d have them in txt format in another folder, served through a yaml. But this repo needed a llm.json format, so I’d have to write a script to convert that yaml into the accepted json format. \nDid all that, then connected with Kashish again, he helped me configure some of the changes, then told me how to run the system basically:\nStart up the llm config server with uvicorn\nBoot up a redis server for storing redis dump\nRun client.py to actually interact with the server and get responses\n\nNow, the prev conv thing didn’t work despite a lot of debugging with Kashish(to his credit he was very patient with it all), but we at least got the web socket working which meant I could connect to Cekura for a full convo.\n\nNext I was to talk to Sampat for setting up Cekura. He showed me the interface and how you create Agents, and for your prompts you have Metrics and Evaluators based on your Simulation. I created my own agent, and saw how as an Evaluator, you basically prompt cekura how it should talk to your voice agent, what scenarios it should test, then at the end it gives you results. \nNOW, to connect your agent to cekura, you’d need a link, that link is added on cekura, but sampat configured it to include MY link, which here is an ngrok (my old friend) that I opened on my device exposing my running server. The result? I keep an ngrok link and customllm server running, and I can create and test scenarios on Cekura with my prompts and check changes. Whew.\n\nThat was a whirlwind of a day, I was in office till 9.30. But it felt good, doing programming, debugging, setting up servers, the rustic, old world, programming charm. All for me to make lil text changes to my prompts now and then. Heh.",
+      "timestamp": "2025-07-08T04:31:15.236Z",
       "mood": null,
-      "productivity": null,
-      "techStack": null
+      "tags": []
+    },
+    "2025-07-08": {
+      "content": "APIs broke randomly again in the morning. So after a bunch of random effort which I'd already put in yesterday and some more random bugs, it all works now. Kashish helped me get a phone number from retell AI whom I can chat with about my prompts. Fun! I also got my ngrok link connected in TrueFoundry having it point cekura to my local system, so I can write simulators to test out my voice agent's prompts. I add a scenario and info, and the cekura agent objectives to check, and it runs a simulation for that scenario. Kinda cool. There was also an all hands today and then dinner! CEO shouted out my doc in the all hands YAY. We had dinner at.....Ummrao, The Courtyard, The Marriott. WOAH. I'd always joked about being treated at the Marriott, but to be there, the experience - some inner kid inside me got fulfilled today :)",
+      "timestamp": "2025-07-09T04:47:44.087Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-07-09": {
+      "content": "Got assigned a buuuunch of stuff today. Made a doc to maintain simulation names and their scenarios. Was assigned prompts for a whole new client, so picked up the prompts from retell and put it in customllm locally. Had to properly plan out the structure, this was a simple RPC flow: verify the user and transfer to a human. I had to add another state to obtain a reference number and I made a mock server with FastAPI to query that, I think that'll be used in the dev environment too. Had to finish up 1FA testing but the API broke (again) and I was unable to debug that yet which is irritating. I have been assigned a bunch of new tasks which I havent gotten to yet. I need to make progress on my idea to build prompt tooling. Also I talked to the voice agent a couple of times lol, its eerie how good it is.",
+      "timestamp": "2025-07-09T19:17:37.116Z",
+      "mood": "Stressed",
+      "tags": []
+    },
+    "2025-07-18": {
+      "content": "Went in late to the office at around 1, goal was mainly to iterate on the ACA agent for the demo in the night. Rushabh gave a speech today, I helped him. There were nachos! Build your own nachos, fully vegan, sponsored by Rushabh. Nice it was. Anyways, I felt unproductive today. I made more changes to the ACA, its decent now other a few small bugs. Engineering Townhall today, last month I was a silent spectator, this time I was actively engaged. I was asked my thoughts about my role and all heh it was nice. Came home, added a final touch to the demo and pushed to dev. Sent Kashish the mock data, hope the demo worked.",
+      "timestamp": "2025-07-18T17:49:28.419Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-07-10": {
+      "content": "Started off as a kinda chill day but whaaaaat a twist by the end. Finished making some simple 1FA changes in the introduction like changing the AI description and waiting for sign of life before giving disclosure. Added some simple simulators for this. Got true foundry access (FINALLY), so I can redeploy the Cekura Retell bridge pointing to my local link when I want. Sent the FSA prompts as it was originally to Kashish, but he realised my step of adding a reference number for validation was good, so we proceeded with that. He added a transfer_call feature to the prompt and gave it to me to test. I added 6 simulations in cekura for this: it moooostly passed but the prompt for verify_user_details was hopelessly over engineered: I tried what I could to make it not leak the actual names, but it still wasn’t ironclad. But it was decent.\nI was also told to make similar RPC flow for STG, and at this point I’ve become so used to it that I spun up a local config in 10 minutes. \nBUT now while I was debugging this, the Bangalore thing…..well, okay you’ll remember it. So yeah, THAT happened for nearly an hour, flight, hotel booked. Ran home at 9.30, got ready and slept at 12 for my 6am flight to Bangalore. Oh, and I also got a carrot (like a negative remark) from the CEO for not answering a query of his he asked at 9 and then asked to complete at 11.45 when I said I’d do it tomorrow. Honestly had no idea what he wanted and did a shitty job of understanding it. But I have too much on my plate rn. Writing this from Bangalore. Wohoo!",
+      "timestamp": "2025-07-18T17:53:39.498Z",
+      "mood": "Tired",
+      "tags": []
+    },
+    "2025-07-11": {
+      "content": "Whew, hectic day. Caught the 6am flight, for which, btw, I had stretch economy, so like, a fancy seat, nice food, the Airhostess catered to me personally. It felt nice lol. So anyways I caught an Ola and got to the hotel at like 10, there wasn’t a room yet. So I freshened up and came to the office. Had to wait a bit but finally sat down at a desk and started working. Kashish came in a bit later at around 12, but he was nice. Our main focus was to get the FSA agent working properly for a demo, and the prompts weren’t great and the verify_user_details one was just horrible. There was a sync up call and then I went to the room, checked in and then came back. Was supposed to give a KT to Vansh who’s also joined th ProAgent team, but K told me to focus on the prompts instead and that he’d do it.\nAnd then, from around 4.30 to like 10, it was just a constant iteration of writing the prompts, testing it, it didn’t work, reiterating it, and then again. We tested it first on K’s laptop with my prompts which seemed to work except for the transfer_call, but when he added that everything else broke. SO yeah debugging all that, then I wrote a ton of scenarios for Cekura, had to iterate through them multiple times too. User had to verify 2 out 4 random fields- so I wrote 6 scenarios, one for each permutation. It was just kinda frustrating honestly, felt like being kinda stuck there. Got to the hotel at around 10.15 dead tired. But hey I got a taco (appreciation method on slack) so yay!…?",
+      "timestamp": "2025-07-18T17:54:06.545Z",
+      "mood": "Tired",
+      "tags": []
+    },
+    "2025-07-14": {
+      "content": "Got into the office at 11.30. So I was assigned some new tasks after Friday’s FSA demo. Also Vansh also started working on the Proagent team in the same role as me, so I had a meet with him to get his local system setup to test prompts. I also helped him setup a retell agent to call the llm agent with a phone number. \nSo the tasks I got today were for FSA only. I had to improve the Do Not Call feature, and secondly ensure that name would be verified first before any other fields in RPC.\nI found a bug in the DNC - the variable name for the initial phone number the user was calling from and the number in the user details context had the same variable - so it was being overwritten. So that had to be changed in the backend. And for the name thing the error happened on text but not on call.\nI learnt from Kashish how to create a new LLM Agent using the deployed utils link - I’ll use this agent as my own personal dev and migrate changes from this to the actual dev agent later. I started making documentation for this, I’ll need it sorely.\nAlso, found out how to read call logs through the monitoring tab on truefoundry. I have a dev instance which I can connect to my number on Retell, and then I can test my dev instance by calling that number. This whole arch is a lil confusing honestly. But yeah, twas today’s work.",
+      "timestamp": "2025-07-18T17:54:39.807Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-07-15": {
+      "content": "Walked into the office opened my laptop\tand saw so much work assigned to me. The CEO Shantanu asked me for updates for the 1FA name shorten and sign of life changes. He wants to perform AI A/B testing for that? Talked to Kashish and we don’t really have that capability yet.\nHelped Vansh setup a new LLM agent, something I learned yesterday.\nIterated on the 2 FSA things which was unfinished yesterday, DNC and Name verification. Kashish sat me down and told me to have a clear testing approach whenever there’s an identified bug, which I will list below:\n\n\nObtain information about an issue in the agent\nTry to replicate this issue locally, whether on text or on call. If the issue occurs on call then you have a transcript to analyse.\nIf the issue is not replicable, run sufficient number of call/text iterations to confirm the same.\nIf the issue is replicable, then identify the prompt sections causing the issues, update it and check again. Iterate this process.\nTo confirm the prompt changes solved the issue, run MULTIPLE text AND call iterations to confirm the same.\nEnsure these local calls are logged in Cekura, so that their transcript can be viewed later\nYeah so I followed this to fix the pesky name verification issue - added the specific line in the top guardrail of the general prompt. Then went with a v simplified DNC. So that’s DONE. Oh I wrote simulations also for it yesterday. \nShantanu (CEO) randomly called me to ask to look at a call made by the 1FA agent and how it performed. I wrote my analysis of it. Then he asked me to join a client call! It was with the 1FA execs and he introduced me as someone who’d be working on iteratively improving their agent. It was kinda woaaah being in a client call and seeing the edge of our product-like this is who we’re selling to. Was an interesting experience for sure.",
+      "timestamp": "2025-07-18T17:56:07.063Z",
+      "mood": "Stressed",
+      "tags": []
+    },
+    "2025-07-16": {
+      "content": "Didn’t really feel like I did much at all today especially compared to yesterday. Helped Kashish debug some code cause of which calls weren’t running parallelly on Cekura. Had some confusion about the cekura retell bridge and which number is what and how do you actually decide when to test which agent. Kashish explained it to me, and I made a (not half bad) architecture diagram. I realised that a phone number identifies an agent id which identifies an llm id. THATS how you distinguish between agents pushed to the dev production.\nThen I was also told I needed to make an agent for an ACA conference, it would be a v simple flow with predefined data, it would be a controlled demo. So I made a task and subtasks for myself, and started working on first deciding the states and flow.",
+      "timestamp": "2025-07-18T17:56:58.078Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-07-17": {
+      "content": "I go back today! Checked out of the room at 11 and came to office with luggage. I continued working on the ACA demo, I made 5 states, along with a negotiation state where the agent and user agree upon a final payment plan. It’s chill only cos it’s all dummy data. I called a few times and iterated upon the changes, the flow is clear at least. I was also shown some issues in 1FA and told that I would iterate upon it weekly to improve it. That’s it really, I left the office at 6 and travelled for a looooong time to come back to mah city. That concludes the Bangalore trip. Quite a whirlwind, but I really did learn a lot. Yaaaaaay",
+      "timestamp": "2025-07-18T17:57:08.406Z",
+      "mood": "Stressed",
+      "tags": []
+    },
+    "2025-07-21": {
+      "content": "Called in sick today. Blergh.",
+      "timestamp": "2025-07-23T04:06:45.475Z",
+      "mood": null,
+      "tags": []
+    },
+    "2025-07-22": {
+      "content": "Got an updated flow for the ACA demo agent, spent around an hour building its flow. Then got down to making prompt changes, made changes and iteratively tested by calling the number. Created a new llm id and linked it to the ACA agent so as to keep the previous changes intact. Had multiple calls to test the agent, changed some amount values to keep the math consistent. Pushed the config to dev, tested it out on livekit. Seems almost good to go. Also, looked at this platform called LangFuse today for prompt versioning and prompt management. I mean, sure, its needed for sure, but an entire tool for that? Don't know what I think of that.",
+      "timestamp": "2025-07-23T04:12:42.498Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-07-23": {
+      "content": "Today was another day of iterating on the ACA demo agent. Apparently, there were a few minor issues like allowing for a full card number of 15 digits and mentions of one time payments, that I fixed. I tried working a bit on the tooling I thought of a while ago, where I could pass in a conversation and be able to test it one by one. I quickly realised that vibe coding that as is wouldnt work, so I started writing my thoughts and documents on it first to build it properly. Also got some reviews for the FSA agent, didn't have much time to review it.\nFor the ACA demo, there was an email tool call to be added, that took a little debugging, then after a few more iterations and a lot of calls, it was in a finished state from my side. It got frustrating calling again and again and it felt kinda like grunt work, but at the end seeing the finished product, a working agent capable of handling complex situations that I built from the ground up, that did feel kinda nice.",
+      "timestamp": "2025-07-23T17:03:46.295Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-07-24": {
+      "content": "Well you would think that was it with the ACA agent, but today after some feedback I had to iterate again on the ACA agent, for trivial things. There was a particularly nasty one where the agent either:\n1) Thanked the user and stayed in the same state, and needed some response to transition\n2) Said \"I will move to the next step\" while doing so\nI had to essentially make it thank the user and silently transition to the next state. Took some wrangling and clever positioning of prompts but I did it. Today was like Self Care Day at cowrks, there were like painting sets and stuff and I put on a face mask in the meeting room ,that was fun. CTO tested the ACA, found it ok. I tried to start on a new agent's improvements but wasn't able to properly get started. As it stands I have finished the ACA demo agent, the demo is tonight in the US.",
+      "timestamp": "2025-07-24T18:12:34.345Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-07-25": {
+      "content": "Idk was an unproductive day glad its over glad its the weekend i need to recharge",
+      "timestamp": "2025-07-25T17:45:42.673Z",
+      "mood": null,
+      "tags": []
+    },
+    "2025-07-28": {
+      "content": "Went into work a little early to attend the weekly sprint. Got assigned work on 2 new agents, one is an old one in prod which needs to be updated somewhat, and another is a new agent which needs to go live this week and is based on FSA. I wrote some basic stuff on how to tackle each. My laptop properly crashed yesterday, so I started setting stuff up in a different laptop. Had some issues debugging my local setup so I just kinda left early. Got it working later in the night. Need to make serious progress on this tomorrow.",
+      "timestamp": "2025-07-29T04:39:24.687Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-07-29": {
+      "content": "Finally a nice clean good fun productive day! Used the new keyboard and got my mouse along too, was a good setup (just need my stand now).\nImmediately iterated on NES agent, changed the overall formatting a bit, made it markdown, maintained 1FA format but better more polished, wrote an updated verification prompt. I was happy to see how quickly I was working on the same thing which left me frustrated yesterday. I finished up prompt changes, tested on text, made a few calls, then added a few simulations on cekura and tested those too. Feel good bout this agent, I'll deploy it to prod today or tomorrow. \nI also started work on STG agent, which is similar to FSA but with a phone number as ref instead of reference number. FSA gave me a lot of pain that friday in bangalore with verification so will be interesting to see how that pans out. I attended the weekly cekura week, asked a question :)",
+      "timestamp": "2025-07-29T18:53:57.992Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-07-30": {
+      "content": "Dunno if im meant to have consecutive up and down days or what cause what was today. After I pushed the NES agent to prod, Kashish said these werent the right prompts- I'd taken em from the right agent, but made improvemtents - didnt want that right now, just to reproduce the prev agent's performance. Yeah I felt kinda bad about that but he was gracious about it. WRT 1FA, I also had to push the introduction change and the change where the agent waits for sign of life before giving disclosure. I hastily pushed this without testing, and an engineer caught it in staging :(. I went back to prompt iteration, made changes, tested heavily and then pushed again to prod. Finally got the config right with all the prod tool URLs, added em all myself. Had to revert the NES config. Kashish pushed 1fa to prod late night.",
+      "timestamp": "2025-08-01T04:45:50.817Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-07-31": {
+      "content": "Uh okay somewhat better day. I first iterated on the STG agent, turns out the reqs were easier than I thought, so built and tested that and finished it by 3. Then I made changes to NES config matching it to 1FAs config. Here too I had an oversight by not updating an edge to the state in the yaml. But still by 7, I was done with STG demo, pushed final NES changes to prod, and analysed some 1FA calls from the prod deployment that ran during afterhours. Atleast I accomplished my tasks, and a day early I feel, so yay! Have been given an outbound task, lets see how that fares.",
+      "timestamp": "2025-08-01T04:49:04.454Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-01": {
+      "content": "Good day! Was idling a bit at the start trying to figure out the requirements, but a call with Kashish later, I got my task. So there are currently 8 demo agents, I need to track their configs down and replicate them but for an outbound agent, it involves changing the inbound webhook to look for a to_number instead of a from_number, and some prompt changes which make the RPC simpler. I can fire a CURL request to place a call to my phone! But didnt make much progress on this, next week it is. Oh! and I also wrote a script that uses Cekura's API to copy all scenarios from one agent to another, this works. There's potential to expand it further, will look at it when I have time.\nThere was an informative session today explaining the Agent Orchestrator, basically the front audio part of the LLM orchestrator. Learnt a lot about how the entire system actually comes together, and there was a mini brainstorming session to find out shortcomings in this system. TGIF!",
+      "timestamp": "2025-08-01T17:44:34.240Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-04": {
+      "content": "Ok so I got more clarity about the outbound demo? Those 8 phone numbers? they all link to the same agent! Basically the number you call on is the account you are testing, that gets set by the inbound webhook. So nice, I only have to edit one config, I track the llm id using the number, copy it and start making changes. Since this is hitting demo APIs, I found that any number you call on, it gives you a demo account, which is nice cause for now I can call the agent and simulate an outbound call! Least until I get a proper number and can use the curl request to fire a call. My head was paining so left early at 6. There was an internal demo at night, which was....mid. James, the person demoing, had some thoughts about it not being outbound sounding, about the starting not being clear enough, and a couple of more issues. Tomorrow nights the deadline.",
+      "timestamp": "2025-08-06T05:40:41.210Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-08-05": {
+      "content": "Oh man it was a long long day but satisfying at the end. I came in at 10.30 am and left at 10pm. So first I started working on the outbound improvements: added an AI disclosure, gives answers about why its calling, more debt info given upfront, etc. It checks if the person seems to know the user then it asks to call them, else it says theres a personal business matter. There was a lot of iterating on this. Towards the evening I got the payment details so tested that too. Sumanyu had thoughts so incorporated that, iterated again and again. Elevenlabs had a bug where payment and dates had to be in text format, so had to ensure that. All in all, was a long day already when I left. Then at 11 I had a call with James who tested the agent and asked for a few more minor changes. Did all that by 12 for the demo. The final customer demo went well and I got a \"taco\" shoutout as appreciation, so yay!",
+      "timestamp": "2025-08-06T05:46:11.256Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-06": {
+      "content": "Yeaaah lazy day it was. Went in at 12, and didnt have an assigned task till like 3, but its fine. Went through a very well written article about voice AI and agents. Then I asked for the STG demo feedback and got it, minor changes other than a confusing one which would be asked again and revised. Also to maybe do is add filler text for the outbound demo. Yeah no lazy day but its fine after yesterday I think it's deserved.",
+      "timestamp": "2025-08-06T17:57:50.930Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-07": {
+      "content": "Started working on the STG changes. Made a good list of given feedback, and improvements I had noticed by looking at the calls. Started implemented them. Because of one feedback, I had to rewrite the entire flow of the RPC, so I hope it was worth it. I got a Google Voice number! No more pesky GMeets. In the evening there was a demo showcase of the ACA demo, of which I had built the proAgent part. It was nice.",
+      "timestamp": "2025-08-07T18:59:18.128Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-11": {
+      "content": "Not much done today. Didn't get any shiny new tasks, went through the email thread of 1fa to identify feedback about the prod agent and listed down recommendations to fix them.\nThere was a biweekly product sprint demo, where I presented the Outbound demo I made. It was decent, but there was a bug which had never occured before lol. It was fine tho, I got valuable implementable feedback, and the CEO praised it saying it was done in a very short turnaround time and its good.",
+      "timestamp": "2025-08-12T04:29:39.951Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-08": {
+      "content": "Not much. STG said not to verify with phone number, do with SSN instead. But that's not a reliable primary key, so the STG agent is on hold for now.",
+      "timestamp": "2025-08-12T04:30:35.431Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-08-12": {
+      "content": "Interesting day. I found out essentially that my main task rn is to work on enabling the 1FA agent for in hours too. Deadlines are set, so I started working, found a few issues. Office hours is defined at 9am-5pm Eastern time, but some agents like in Arizona have a different time. So I can't just pass in current_time simply into the context. Also the format is clunky, and there's no day of the week - Mon-Fri is business hours. These are non trivial non prompt changes.\nAlso, I made the change to the general prompt to make it take in and out business hours, but I feel it might perform better if there were 2 separate general prompts - one for in hours and one for out hours. These are interesting changes. Probably the biggest indication of my worth here at the company is if they let me work to help for *any* of these changes, or ask me to only focus on changing prompts. Hmm. Tomorrow will tell.",
+      "timestamp": "2025-08-13T04:32:33.011Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-08-13": {
+      "content": "Good day! So I deliberated about the best way to solve this in hours/ out hours issue with some form of code change. First order of business was to convert the current time in the context into a proper readable format and also add a day of the week variable. I was kinda surprised how readily Kashish agreed to this, he was like, yeah go ahead, raise a PR, it is a good change. So yesterday's ending thought went in a nice direction! Added the PR and it got merged into llm-orchestrator. My first code contribution! Was tiny, but I contributed, yaaay! I spent the rest of the day checking if this fixed the issue. Special scenarios seem to be handled, but some simulations where the user is confused makes the agent default to out of office hours state no matter what. Hm. More changes?",
+      "timestamp": "2025-08-18T06:35:28.684Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-14": {
+      "content": "I deliberated one of two ideas to make the agent better - either a toolcall within llm-orch that keeps passing business hours status to the llm, or just calculate is_business_hours from the time and pass to the prompt as a boolean?\nSimple won, easy. So I added a new variable in the context and raised another PR. However, some edge cases were still defaulting to out of hours. Then I found the issue. The prompts were written with an out of office agent in mind right, so small local mentions here and there of a default ooo agent prevailed over the general prompt guidelines? Solution? Add a rule to every state's guardrail, that seemed to override the local irregularities. So thats a nice temp fix! Need to test a bit more to confirm it holds",
+      "timestamp": "2025-08-18T06:40:24.745Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-15": {
+      "content": "Holiday today! Independence Day",
+      "timestamp": "2025-08-23T04:25:19.190Z",
+      "mood": null,
+      "tags": []
+    },
+    "2025-08-18": {
+      "content": "Was sick this weekend and was raining heavy today, so WFH today.\nLight work today, mainly focused on the 1FA business hours check, ensuring it works in all scenarios, writing simulations, etc.\nAdded a PR for business hours variable and adding prompt changes for that.  After a chat with Kashish, objective is to make it configurable from the llm config, since having it for agents other than the 1fa one isnt feasible. Best to add a flag to the config to enable or disable checking of business hours based on presence of that flag. Chill day.",
+      "timestamp": "2025-08-24T11:08:33.800Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-19": {
+      "content": "Was a VERY busy day despite it again being WFH. Started early, added the PR for the business hours. Kashish left a comment it should be able to modify start and end time and day of week from the config, might as well add an enable flag too. So I worked on that change, and updated the PR and got that pushed by evening.\nAlso got requirements regarding STG, but Sumanyu asked to focus on 1FA first. After a chat, it was decided I'll work on STG from tomorrow.\nThen I was in a host of calls, one to transfer the 1FA work to someone else working on it, then another to test a SIP URI to transfer to a human agent based on a hunt group API. Basically I ported my business hours code over to a prod config with a number with SIP trunking and tested its working and stuff, it went on for a while.",
+      "timestamp": "2025-08-24T11:15:24.678Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-08-20": {
+      "content": "Work from home, didnt work much. Started looking at STG agent.",
+      "timestamp": "2025-08-24T11:16:49.978Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-21": {
+      "content": "Mapped out the STG flow - it's interesting. Instead of just using the phone number for lookup which is not reliable enough, based on what brought the user here, different lookups are used.\nCalled cause of a debt letter? Lookup with file number, if thats not found check with SSN and zipcode\nCalled because of email? Lookup with email address\nEtc, so its interesting. Also more so because there would have to be an API that performs lookup with different sets of permutations of data fields, AND the LLM I believe would have to intelligently send only those arguments which are relevant to the lookup for that moment to the API. So it's interesting stuff.",
+      "timestamp": "2025-08-24T11:22:17.559Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-08-22": {
+      "content": "Made a mock API while the backend guy made the actual one. I wrote a databricks SQL query to get all the data points I need from the database for this mock api data! Then I made a FastAPI endpoint that does lookup for the fields based on which ones are present. Seems a pretty decent approximation of the real deal.\nThen I updated my setup to the latest commit, it had been a while. Debugged some issues, then I tested the API.\nAnd it worked! There were issues, yes, but the core logic of the LLM passing in certain arguments in certain scenarios to do the lookup worked. So that's encouraging.",
+      "timestamp": "2025-08-24T11:31:59.753Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-08-25": {
+      "content": "Chill day; didn't get the STG API yet, so was blocked on that front. Got tasks to setup 3 new agents; started work but was again blocked on those fronts. Made a couple of call flow diagrams and yeah, that was it.",
+      "timestamp": "2025-08-26T04:13:58.687Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-26": {
+      "content": "Not much at all, finally got the STG API and tested it, worked fine. There were a couple bugs that I discussed and addressed, like the actual account_id having a hyphen but the user wouldnt say it, so how to handle it. Think I tested STG a bit, and got requirements for a new tenant's agent, but that seemingly needs work and the data for it is not there yet, so yeah, not much today. Gave the STG agent number to test, with a test account. Had a productive meet with the other AI Engineers about standardization of prompts - how to unify sections across a prompt and across tenants.",
+      "timestamp": "2025-08-31T12:21:55.538Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-08-27": {
+      "content": "Holiday! Ganesh Chaturthi! Did get pinged a lot but ignored it for tomorrow.",
+      "timestamp": "2025-08-30T06:36:49.319Z",
+      "mood": null,
+      "tags": []
+    },
+    "2025-08-28": {
+      "content": "Based on the review given of the STG agent, I made tweaks and additions to the prompts, such as improved fuzzy matching for names, and responding more intelligently to the user at the start. I got a new requirement, to add a parameter to transfer_call function called discussed_account_id, essentially add whatever acc is is discussed in the convo, save it when its being transferred. But I found out the transfer tool being a general tool doesnt have functionality to add custom parameters, so I'll have to raise a PR for that tomorrow.",
+      "timestamp": "2025-08-31T12:28:38.717Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-08-29": {
+      "content": "Pretty long day. Started with finishing off any pending replies in email threads, pending emails, google doc comments, documentation etc.\nThen got to office and had a call with Kashish on how best to update the code to add a custom parameter for the transfer_call tool. I made the change and was testing it for various scenarios to check when the LLM passes in an account id to the parameter, and when it is blank. This is controlled by the parameter description. Then I save it to the context, which after call is picked up in the backend.\nThen had a 1hr meet as a follow up for Prompt Standardization, where each of us had picked 2 States to analyse across tenants and see if it was possible to standardize. Was a great discussion, we discussed a lot of improvements. We decided our goal is to migrate to a common Base Template with dynamic variables and configurable agent specific sections. Rest that is static combines the best of all agents. We also want to eliminate the LLM having to do computation and analysis.\nBased on this, I took some time and drafted an official Internal Note, without any AI help, which felt good, as a documentation piece.\nHad to stay up late tonight - very much missed that STG would be prod testing today and the number wasn't working.\nI hadn't applied an all agent fix ascribed yesterday; I did that. But for a long time, the API seemed to not be working. After some help debugging, I finally found out the API endpoint was configured wrongly, fixed that and got the number working again. The CSM tested the number and appreciated its working and performance, got a \"taco\" of appreciation for that.",
+      "timestamp": "2025-08-31T12:42:09.345Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-01": {
+      "content": "New office! Started work on UFL demo agent, had some random errors on my local setup, so I moved to finish off the STG work, where I had to make a code change to allow custom parameters for general tools and save transfer call arguments in context. I made the codechange and opened a PR. Got approved, merged it and then updated the deployment. STG was moving to staging env. Tested out the changes, they work great. Now when RPC is successful, a parameter called discussed_account_id is passed into the context. Nice.\nI also worked on the UFL agent later, basically it had NES style structure, so I ported that over and built the configs into a number. So I have a callable number now. The agent is a lil janky, but can be ironed out, and is fine for a demo.",
+      "timestamp": "2025-09-02T05:14:22.455Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-02": {
+      "content": "Was still facing errors in local deployment, so I worked on getting out the UFL agent i had worked out to a dev env so I could test it and release it as a demo version.\nWorked on making a doc for standardization of prompts, where I laid out the pipeline, architecture, implementation, effects, etc. It was a pretty comprehensive doc with a solid arch plan, and I even made a low level design on paper and wrote notes. Will discuss this soon with the team.\nOther than that there was a STG meet with the client where the requirements were simplified for phase 1: just ask for file number, and send the customer through after lookup. So need to change that.\nHave a lot of things starting to pile up, next three days will be crucial.",
+      "timestamp": "2025-09-04T04:18:33.142Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-03": {
+      "content": "Added finishing touches to the Standardization doc, added flowcharts.\nWorked on UFL, previously I had ported over a previous agent, but now I  modified the RPC acc to UFL's needs, and had a chat with the CSM about its requirements.\nTook a while to fix the local bug, but finally got it working, had some weird SSL certificate error.\nAttended a meet explaining the working and nomenclature of the database platform of the company named PIE.\nNeed to work and finish STG tomorrow, then take on TRK too.",
+      "timestamp": "2025-09-04T04:21:39.116Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-04": {
+      "content": "Got to work and immediately started work on STG agent simplification for Phase 1 - the agent now greets and immediately asks for file number or the other combos if that's missing. Once lookup is done, verify the name and that's it, no RPC, transfer it. It took a while to configure this since an entire state became redundant, but while its not a 100%, it's pretty good and robust I think. I also added some additional name verification security.\nAlso regarding the transfer, its a code change which hasnt been updated so pending on that. \nThen I took a look at the TRK agent, which post RPC is different from others - it just tells users about account placed and stuff.",
+      "timestamp": "2025-09-05T05:10:21.261Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-05": {
+      "content": "Had a productive discussion today about the standardization of prompts. I spearheaded the discussion with suggesting a new architecture and dividing the prompt into 4 blocks in increasing order of stochasticity. I shared the tenant config mockup and examples, and the conclusion I got the go ahead to implement a POC for this templating system. I plan to use JInja as a templating format to enforce conditional logic and variable injection. Is the first step towards a possibly massive contribution to the company's products. Hope it pans out.",
+      "timestamp": "2025-09-05T17:24:42.607Z",
+      "mood": "Excited",
+      "tags": []
+    },
+    "2025-09-08": {
+      "content": "Responded to a lot of mails today, mainly about weekly progress and queries about my tasks.\nStarted plotting the flow of the TRK agent, might have to make a new state for this and enable dynamic prompting, since this is a very conditional flow.\nAlso got requirements for a new demo agent for a tenant PPW, the domain on this is slightly different. They sent a few calls with different scenarios, I listened to them and made notes, how are they similar, and how different. We then decided which scenarios would we adopt to show our capability for this tenant.\nSo tomorrow is a long day in building out the demo for this agent.\nAlso STG was tested by the customers, they found it to be good, just a lil fast so I'll change the TTS to elevenlabs.",
+      "timestamp": "2025-09-09T03:45:10.659Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-09": {
+      "content": "Main focus today was the PPW demo\nDistilled requirements and domain knowledge from the call transcripts\nRead up on the website\nTook the initial demo agent, and started modifying prompts for this demo\nUpdated prompts, iterated, added sections to handle payroll deduction based queries from users.\nSent out the inbound agent for testing, outbound agent is still pending.",
+      "timestamp": "2025-09-10T03:30:48.359Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-10": {
+      "content": "There were some reviews of the inbound agent made yesterday, which I started working on. I made the data mathematically correct, added more context for the agent, softened the bankruptcy disclosure, strengthened name and SSN verification, added payment disclosure.\nOnce the inbound agent was solid, I moved to the outbound agent copying this over, to make minor changes in the greeting state and making the agent be more polite and apologetic.\nThen setup the outbound agent with Zaheer, having a number and a CURL request to fire the call to a particular number.\nAfter a lot of iterating and testing the agents were ready. At night I had a call with James, who would be demoing the agent. He tested it and liked it a lot.\nAnd the final demo went great! There were a few feedback points from the customer, but it was overall a very good showing.",
+      "timestamp": "2025-09-13T03:48:14.173Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-11": {
+      "content": "Came in early because I had to leave early today. My work today was on the TRK agent, to make a test agent for that. There was a new state would be dynamically decided based on the presence of a variable, but because there was no data for this tenant in the DB yet, I had to use mock data in the prompt itself. This meant I could not do dynamic routing, and after discussion with the PM I decided to make 2 agents, one which has placed agency info and one which does not.\nHaving faced this problem before too, I talked to the Backend Engineer about the using of mock data and how much effort is needed to insert new data into the dev db.\nTurns out, data with a schema other than that of the DB would require a lot of effort to sync with Postgres etc.\nSo I suggested an idea - why not have a mock server, somewhere where I can just upload JSON files with any schema for a tenant, and it would store it in JSON files and query from that as an API when I wanted to access it in the LLM. This would be for those new tenants whose data wasnt yet in our DB nor did we have their APIs. The benefit of this over putting data in the prompt was that while there was a latency tradeoff, you had more control here, could add multiple accounts and also query different APIs. Simply a more scalable approach. The engineer liked this approach and after conferring with the senior engineer, approved it and asked if I would work on it to implement it. I was so happy! Sounds like an interesting project for sure, which I think will help me and others for demos.",
+      "timestamp": "2025-09-13T03:57:00.756Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-12": {
+      "content": "Worked on TRK, tested the 2 versions of the agents, worked fine.\nSTG agent which I'd worked on last week went into prod testing, we tested a few accs, seemed to work, the transfer logic was solid too. Now we passed it over to the STG customer team for them to test it and give feedback, based on which I will iterate on Monday.",
+      "timestamp": "2025-09-13T03:58:52.023Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-15": {
+      "content": "Not too heavy. Main task was to check STG performance, I pushed some improvements to staging, there were additional feedback points which I was iterating on, then I finally pushed it to prod.",
+      "timestamp": "2025-09-16T18:15:37.619Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-16": {
+      "content": "Starting working on the mock API server, made a few APIs that would take in JSON for a tenant and store in JSON files, and I could query them from a generic lookup search API. But when I had a discussion with the Backend Engineer, he pointed out that I simply couldnt write to a file when this was deployed since it would remain in memory and be wiped when a new deployment would be made. The solution was to edit the JSON file and push the edit directly to Github, making the file write permanent and then triggering a new deployment with CD. So this is somewhat on hold for now.\nSTG prod testing by the customer team seemed to go well, lets see the verdict tomorrow.\nAlso made an outbound agent for RAC which only does name verification then passes it on.",
+      "timestamp": "2025-09-16T18:21:03.399Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-09-17": {
+      "content": "Mostly chill day. Mainly worked on UFL agent. Had sent out a basic version of it, which the CSM tested out with 8-10 calls and gave feedback about some points like accuracy of address verification,  payment full vs partial path, latency, etc. Apart from this, I also had to migrate the agent to GPT4o because Claude Sonnet 3.5 is getting deprecated soon.\nI made all these changes, but the migration to 4o was a bit challenging since the same prompt which worked in claude, 4o had trouble while transitioning to a new state.\nOther than that, at night I got the API integration for sending payment link to SMS, so ill work on that tomorrow.",
+      "timestamp": "2025-09-23T03:41:06.640Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-18": {
+      "content": "Worked on integrating the Interprose API with the agent, looking at parameters etc. Got that and the agent more or less ready by evening. There are still a few bugs which are because of gpt 4o. \nAlso, the STG agent I was working on for a month, finally went live!\nThis is Phase 1, where there'll be 12-15 calls a day. Phase 1.2 goes to 2000 monthly calls, and 1.3 is 9000 monthly calls. Woah.\nGot to take a moment here to pat myself on the back for some kind of recognition.\nI'll be monitoring these calls daily.",
+      "timestamp": "2025-09-23T03:48:50.608Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-19": {
+      "content": "Monitored STG Calls, also had a call with Kashish who explained the steps to correctly test the performance of an agent when migrating to gpt4o, running parallel simulations on Cekura. \nThere was an updated set of feedback on the UFL agent, which I incorporated, post which I was to share the number with the customer. However, the gpt4o specific issues remain.",
+      "timestamp": "2025-09-23T03:52:06.271Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-22": {
+      "content": "Today onwards I have a standup everyday at 10.30 to discuss work done for agent engineering. There was also a discussion today pertaining to migrating agents, and I was given a few agents to migrate.\nOther than this, I worked on some feedback to STG, where if the user seems to be searching for their file number, you can prompt them to verify with their SSN+zipcode instead.",
+      "timestamp": "2025-09-25T04:13:03.243Z",
+      "mood": "Neutral",
+      "tags": []
+    },
+    "2025-09-23": {
+      "content": "Worked on STG changes, like mentioned yesterday. I was having issues with prompting after silence, the LLM did not keep quiet and spoke out the next part. I then decided to switch to a single state for ease of use for this Phase 1: this seemed to work pretty well, need to test it tomorrow.\nAlso worked on an integration that used the Cekura API to pull in stats from STG production calls, like total calls made, transferred, user/agent hangups, avg time etc on a daily basis. The idea was to run this daily to automate calculating basic stats and send it as a notification on Slack to keep everyone informed and aware, ready if anything goes wrong.",
+      "timestamp": "2025-09-25T04:16:50.183Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-24": {
+      "content": "Finished STG changes, added it to test number and ran tests - seems to be all OK.\nThen I worked on the STG stats integration - I polished the script to calculate stats for the previous day, added a section to generate an email draft to send to the customer using these stats, and then published this file on PyHub(aws cloud). I also setup a cronjob for this to run daily at 2pm IST, sharing stats of prev day.\nNext, I worked on UFL, I looked at how dynamic prompts were implemented in 1FA, and I added the same to my yaml here. Since it was based on the availability of SSN, DOB and Address, there were 8 possible prompt scenarios which I wrote out, and then had to make changes to the yaml_to_json.py file to handle this new format. Did that, and confirmed it worked; if there was no SSN data, the flow is routed to the prompt asking for DOB+Address.\nHowever this just did NOT work for gpt4o, and it worked perfectly for Claude sonnet 3.5 . Something to monitor tomorrow.",
+      "timestamp": "2025-09-25T04:22:15.067Z",
+      "mood": "Focused",
+      "tags": []
+    },
+    "2025-09-25": {
+      "content": "Planned multiple things, but majority of the day went in testing and hammering gpt 4o. What I assumed to be a straightforward prompt fix turned out be very stubborn, as gpt REFUSED to transition to the next state after the dynamic prompt state. It was either aggressively triggering call end, or staying in the same state. This was a reproducible unfixable issue no matter what prompt change. I tried changing the state change tool call description to be more robust but to no avail. Claude sonnet 3.5,3.7 and 4 worked perfectly. 4o seems just not good enough for more advanced tool calling.\nOther than that, I pushed for a review of the mock server code I had written with the Backend engineer. He reviewed and modified it, basically built on it and made it prod ready, and created a repo for it.\nI also started work on a new demo agent- this is a general purpose agent to be built for delinquent loan collections in the subprime auto finance sector. This mock server would be helpful for that.",
+      "timestamp": "2025-09-28T18:09:50.920Z",
+      "mood": "Frustrated",
+      "tags": []
+    },
+    "2025-09-26": {
+      "content": "Updated the interesting prompts repository with the prompt to have custom speech after silence - this was in the STG agent and others did not know this could happen.\nI then worked on the Subprime Auto Prompts, adapting them from the PPW demo but adding the auto loan spin and specific elements to it.\nAs for the UFL agent, since 4o proved to be a dead end for now, switched to claude sonnet 3.5 since we would have customers testing it.\nThe mock server went live! Tested it out, this will be good. Now for a new demo I just have to add sample data as json in github, and I can query it with APIs through the mock server URL.\nOnce I got more clarity about Subprime Agent, I realised there would need to be a mock inbound Webhook API call too to simulate fetching user details with incoming phone number.\nSo I opened a PR to add an API to the mock server that searches up consumer and account details based on incoming phone number, flattens them into a single list of dynamic variables, which once queried by the LLM, can be injected right into the prompt.\nThe PR was submitted and accepted! I feel happy because that was my biggest code contribution so far.\nI need to make the STG reporting automation more robust, will work on that next week.",
+      "timestamp": "2025-09-28T18:17:18.833Z",
+      "mood": "Accomplished",
+      "tags": []
+    },
+    "2025-09-29": {
+      "content": "Worked on the mock server today. Actually put out 4-5 PRs for the same for bugfixes and improvements.\nThe inbound webhook mock url was active, and made some changes to it to ensure either from or to number could be used as a key to fetch user details.\nAdded mock data for the Subprime Auto Finance agent, tested it was working.\nAs for the Cekura Slack integration for STG agent, today I added code to aggregate the enum metrics explaining what the user response was for a call. Did some json wrangling and got it out, however I found out that an explanation of the metric is also returned in the response. I plan to write this to a google sheet so that after first level of observability through slack, if someone wants to check the exact reason the enum was selected for that call, they can check so in the google sheet.\nVery code heavy day, I liked it a lot.",
+      "timestamp": "2025-09-29T17:50:26.591Z"
     }
+  },
+  "weeklySummaries": {
+    "2025-W25": "The first week involved onboarding, obtaining necessary software access (AWS, Databricks, GitHub), and familiarizing oneself with internal tools (Bifrost, Heimdall, Matsya).  Progress on adding two new tags (Line of Credit and Car Loan) for Curo Financial involved developing regular expressions; the Line of Credit regex is largely complete, while the Car Loan regex requires further refinement due to limitations imposed by positive/negative matching requirements.  Challenges included initial regex failures and a dependence on clarifying client requirements.  Despite some initial idling, significant progress was made in setting up the local development environment, understanding existing tag functions, and beginning the implementation of the new tags.\n",
+    "2025-W26": "Successfully integrated a new metadata ingestion pipeline, processing 42,000 entries since June 1st.  This involved daily downloading and deduplicating Excel files from SFTP/S3, storing data in MongoDB, matching records based on TCN_ID across different databases, and updating both dialer and call metadata, reflected in the ProInsight UI after frontend configuration adjustments. A daily automated script is now in place.  Challenges included resolving naming inconsistencies across databases and a current UI bug displaying duplicate metadata.  Additionally, progress was made on refining regex rules for data tagging, including adding a new rule for Auto Loan identification and creating rules for Customer Self Payment and High Risk Language using Claude.  Future work involves addressing the UI bug and exploring less restrictive methods for regex-based tagging.  A local tunneling setup guide was also created.\n",
+    "2025-W27": "This week saw significant progress in integrating and testing LLM-powered voice agents.  Despite initial concerns about a purely NLP-focused role, the author successfully set up a local development environment encompassing Redis, a Uvicorn server, and a webhook connecting to Cekura for voice analysis.  A key achievement was establishing a system to test LLM responses by simulating previous conversation segments, though this currently requires cumbersome JSON editing, presenting an opportunity for future tool development.  Challenges included initial difficulties debugging the conversation simulation and navigating the Cekura interface.  The author also created and documented a comprehensive tag database and  successfully automated a weekly Excel report generation.  Finally, the author's prompt engineering document received unexpected positive attention from the CEO, necessitating further refinement.\n",
+    "2025-W28": "The week involved significant progress on voice agent simulation and prompt engineering, including setting up a local development environment with a mock server and integrating it with TrueFoundry via ngrok for testing. A document for maintaining simulation names and scenarios was created, and prompts for a new client were integrated. A key achievement was successfully connecting the local system to Cekura for voice agent prompt simulation. However, progress was hampered by recurring API issues that required substantial debugging effort. Time was also lost due to feeling unwell one day. Despite these challenges, the week ended on a high note with recognition from the CEO during an all-hands meeting and a celebratory dinner.\n",
+    "2025-W29": "On July 14th and 15th, 2025, progress was made on the FSA project, specifically improving the Do Not Call (DNC) feature and name verification process. A bug was identified and resolved in the DNC feature related to variable name conflicts, and the name verification process was refined, including adding a specific line to the general prompt's top guardrail. A simplified DNC was also implemented and simulations were written for it. Challenges included the initial setup of a new LLM agent for Vansh, understanding the complex architecture for testing, and the need for AI A/B testing capabilities which are currently unavailable. Achievements include assisting Vansh with his setup, fixing the name verification issue, creating documentation for LLM agent creation, learning to read call logs, and participating in a client call with 1FA executives to discuss agent improvements. The CEO requested updates on the 1FA name shorten and sign of life changes, and analysis of a ",
+    "2025-W30": "The week focused on developing and refining the ACA demo agent, resulting in a functional agent capable of handling complex scenarios. Progress included building the agent's flow, implementing prompt changes, adding an email tool, and iteratively testing and debugging through numerous calls. A challenge was the repetitive nature of testing calls, though the final product was rewarding. Initial exploration of LangFuse for prompt management raised questions about its necessity. A day was also spent documenting and planning a new tooling idea for conversation testing after initial \"vibe coding\" proved insufficient. Minor bug fixes were addressed in the ACA demo agent, and the FSA agent was reviewed.\n",
+    "2025-W34": "This week focused on implementing and refining a business hours check for 1FA, resulting in a PR that was updated to include configuration options for start/end time, day of week, and an enable flag based on feedback. Progress was made on understanding STG requirements, though prioritization shifted to 1FA based on team discussion. A significant portion of time was dedicated to transferring 1FA responsibilities and testing SIP URI routing to human agents using the business hours logic in a production environment. Challenges included adapting the business hours check to be configurable via the LLM config and ensuring its functionality across various scenarios, leading to simulation development.\n",
+    "2025-W33": "The week focused on enabling the 1FA agent for in-hours operation, involving code contributions to the llm-orchestrator to improve time and day context. A key achievement was the successful merge of a PR adding readable time format and day of the week to the context. Challenges arose from agents in different time zones and the agent defaulting to out-of-office behavior in specific scenarios. Progress was made in addressing these issues by implementing a temporary fix involving guardrail rules to override local prompt irregularities, though further testing is required. Additionally, feedback was gathered and incorporated from a product sprint demo of an outbound demo, which received positive recognition despite a minor bug.\n",
+    "2025-W32": "Progress was made on STG changes and outbound improvements, including adding an AI disclosure, providing more debt information, and addressing user identification. A Google Voice number was acquired, and the ACA demo's proAgent part was successfully showcased. Challenges included a confusing feedback point on STG demo, a bug in Elevenlabs requiring specific formatting, and initial feedback on the outbound demo suggesting it didn't sound outbound-like enough. A potential roadblock emerged regarding STG verification using SSN instead of phone number, raising concerns about reliability. Despite some long days and iterative development, the final customer demo was well-received, resulting in positive recognition.\n",
+    "2025-W31": "The week saw progress on multiple agent projects, including NES, STG, and 1FA, alongside initial work on an outbound agent. Achievements included building and testing the STG agent, pushing NES changes to production (though needing reverts and adjustments), deploying 1FA updates with some initial staging errors, and creating a script to copy Cekura scenarios between agents. Challenges involved prompt iterations, configuration errors leading to rollbacks, debugging local setups, and navigating evolving requirements. The week concluded with a better understanding of the Agent Orchestrator and a brainstorming session to identify potential improvements.\n",
+    "2025-W35": "This week saw progress in prompt standardization and agent functionality, alongside addressing critical production issues. Achievements include drafting an internal note on prompt standardization strategy aiming for a common base template with dynamic variables, debugging and resolving a broken production testing number by identifying and correcting a misconfigured API endpoint (earning positive feedback), and improving the STG agent prompts with enhanced fuzzy matching and intelligent user responses. Challenges included initial blockage on STG API access, delayed deployment of an agent fix, and the need to add custom parameters to the general transfer_call tool. Progress was made on adding a custom parameter to the transfer_call tool, with code changes and testing completed, and initial setup work was started for three new agents, although blocked by data availability. The team also held productive discussions on prompt standardization, focusing on unifying sections across prompts and tenants.\n",
+    "2025-W37": "This week involved significant progress on multiple agent projects. The successful PPW demo was a major achievement, incorporating payroll deduction handling and positive customer feedback, while STG testing revealed a need for TTS adjustments. Development of the TRK agent faced challenges due to missing tenant data, leading to a workaround involving two separate agents and a proposal for a mock server to handle dynamic data with varying schemas, which was approved for implementation. Work on inbound and outbound agents included refining data accuracy, adding context, improving politeness, and setting up integration with Zaheer for call triggering, culminating in a successful demo and positive feedback.\n",
+    "2025-W36": "Over the past week, significant progress was made on agent development and standardization efforts.  Achievements include simplifying the STG agent for Phase 1, porting and modifying the UFL agent to meet specific requirements and create a demo version, and successfully implementing a code change for custom parameters in general tools. A comprehensive document outlining a new prompt standardization architecture was also created, presented, and approved for a POC using Jinja templating. Challenges encountered involved resolving local deployment errors, addressing SSL certificate issues, and adapting to evolving STG agent requirements.  The focus moving forward is on completing the STG and TRK agent modifications, and developing the prompt standardization POC.\n"
+  },
+  "monthlySummaries": {},
+  "moodHistory": {
+    "2025-06-30": "Neutral",
+    "2025-07-01": "Neutral",
+    "2025-06-27": "Excited",
+    "2025-06-26": "Accomplished",
+    "2025-06-25": "Neutral",
+    "2025-06-24": "Accomplished",
+    "2025-06-23": "Accomplished",
+    "2025-06-20": "Focused",
+    "2025-06-19": "Focused",
+    "2025-06-18": "Neutral",
+    "2025-07-02": "Frustrated",
+    "2025-07-04": "Excited",
+    "2025-07-07": "Tired",
+    "2025-07-08": "Accomplished",
+    "2025-07-09": "Stressed",
+    "2025-07-18": "Neutral",
+    "2025-07-10": "Tired",
+    "2025-07-11": "Tired",
+    "2025-07-14": "Focused",
+    "2025-07-15": "Stressed",
+    "2025-07-16": "Neutral",
+    "2025-07-17": "Stressed",
+    "2025-07-22": "Focused",
+    "2025-07-23": "Frustrated",
+    "2025-07-24": "Frustrated",
+    "2025-07-28": "Frustrated",
+    "2025-07-29": "Accomplished",
+    "2025-07-30": "Frustrated",
+    "2025-07-31": "Accomplished",
+    "2025-08-01": "Accomplished",
+    "2025-08-04": "Frustrated",
+    "2025-08-05": "Accomplished",
+    "2025-08-06": "Neutral",
+    "2025-08-07": "Accomplished",
+    "2025-08-11": "Neutral",
+    "2025-08-08": "Frustrated",
+    "2025-08-12": "Focused",
+    "2025-08-13": "Accomplished",
+    "2025-08-14": "Accomplished",
+    "2025-08-18": "Neutral",
+    "2025-08-19": "Focused",
+    "2025-08-20": "Neutral",
+    "2025-08-21": "Focused",
+    "2025-08-22": "Accomplished",
+    "2025-08-25": "Neutral",
+    "2025-08-26": "Neutral",
+    "2025-08-28": "Focused",
+    "2025-08-29": "Accomplished",
+    "2025-09-01": "Accomplished",
+    "2025-09-02": "Focused",
+    "2025-09-03": "Focused",
+    "2025-09-04": "Focused",
+    "2025-09-05": "Excited",
+    "2025-09-08": "Focused",
+    "2025-09-09": "Focused",
+    "2025-09-10": "Accomplished",
+    "2025-09-11": "Accomplished",
+    "2025-09-12": "Focused",
+    "2025-09-15": "Accomplished",
+    "2025-09-16": "Frustrated",
+    "2025-09-17": "Focused",
+    "2025-09-18": "Accomplished",
+    "2025-09-19": "Focused",
+    "2025-09-22": "Neutral",
+    "2025-09-23": "Focused",
+    "2025-09-24": "Focused",
+    "2025-09-25": "Frustrated",
+    "2025-09-26": "Accomplished"
+  },
+  "techStack": {
+    "mongodb": 5,
+    "python": 3,
+    "rest": 91,
+    "slack": 20,
+    "git": 30,
+    "redis": 6,
+    "aws": 9
+  },
+  "insights": {
+    "lastGenerated": "2025-09-28T18:19:12.326Z",
+    "comprehensive": "## Executive Summary\n\nThis individual demonstrates strong technical skills and a proactive approach to problem-solving in the realm of agent engineering. A recurring theme is the frustration experienced with GPT-4o's unreliability compared to Claude, alongside a consistent drive to automate and improve existing processes. The focus should be on streamlining workflows, mitigating GPT-4o related issues, and strategically prioritizing tasks for optimal impact.\n\n## Key Accomplishments\n\n*   **Mock Server API Contribution (2025-09-26):** Developed and implemented a mock inbound Webhook API call to simulate fetching user details, a significant code contribution that was promptly accepted. *Impact: Enables more realistic testing and development of agent interactions.*\n*   **STG Reporting Automation (2025-09-24):** Successfully automated the generation and distribution of daily STG stats via email. *Impact: Improves transparency and awareness of agent performance, enabling faster response to issues.*\n*   **STG Agent Launch (2025-09-18):** Successfully launched Phase 1 of the STG agent after a month of work. *Impact: Delivers a functional agent that is ready for deployment and scaling.*\n*   **Prompt Standardization Architecture (2025-W36):** Created and presented a comprehensive document outlining a new prompt standardization architecture. *Impact: Promotes consistency and efficiency in prompt development across different agents.*\n*   **Resolved Production Testing Number (2025-W35):** Debugged and resolved a broken production testing number by identifying and correcting a misconfigured API endpoint. *Impact: Ensured the continuity of testing and development processes.*\n\n## Critical Challenges\n\n1.  **GPT-4o Unreliability:** Repeatedly encounters issues with GPT-4o's inconsistent behavior and inability to handle complex tool calling, leading to wasted time and the need to switch to Claude. *Root Cause: GPT-4o's model architecture or training data may not be as suitable for certain conversational AI tasks compared to Claude, or could involve undiagnosed integration issues.*\n2.  **Data Availability and Mock Server Dependencies:** Reliant on external data sources and the mock server for agent development, leading to delays when data is missing or the mock server needs modifications. *Root Cause: Inadequate data infrastructure and a lack of readily available data for testing and development, creating a bottleneck in the workflow.*\n3.  **Iterative Feedback Loops & Shifting Priorities:** Experiences frequent feedback cycles and changes in project priorities, potentially impacting overall efficiency and focus. *Root Cause: Fluid project requirements and evolving priorities impacting workflows.*\n\n## Behavioral Patterns\n\n*   **Proactive Problem Solver:** Actively seeks solutions to challenges, such as developing workarounds for data limitations and automating reporting processes.\n*   **Code Contributor:** Confidently contributes code to projects, as demonstrated by the mock server API and STG reporting automation.\n*   **Documentation and Standardization Advocate:** Creates documentation and proposes standardization initiatives, showing a commitment to knowledge sharing and efficiency.\n*   **Frustration with GPT-4o:** Expresses frustration with GPT-4o's performance issues, indicating a need for more reliable tools or strategies for mitigating its limitations.\n*   **Driven to Automate:** Proactively seeks opportunities to automate repetitive tasks, such as reporting and data processing.\n\n## Strategic Recommendations\n\n1.  **Develop a GPT-4o Mitigation Strategy:** Document specific GPT-4o failure modes and implement a checklist of tests to run *before* committing to GPT-4o in a new agent. Include a fallback mechanism to Claude when GPT-4o proves unreliable.\n2.  **Prioritize Mock Server Enhancements:** Advocate for a dedicated resource to maintain and enhance the mock server, including features like data generation and version control.\n3.  **Establish Clear Project Prioritization Criteria:** Work with stakeholders to define clear criteria for prioritizing projects and tasks. Implement a system for managing changes in priority to minimize disruptions.\n4.  **Streamline Data Access:** Collaborate with data engineers to improve data availability for agent development and testing. Explore options for creating synthetic data sets to reduce reliance on external sources.\n5.  **Optimize Feedback Loops:** Establish clear expectations for feedback cycles and ensure that feedback is specific, actionable, and timely. Consider incorporating automated testing and validation to reduce the need for manual feedback.\n6.  **Time Blocking:** Implement time-blocking strategies to focus on high-priority tasks and minimize distractions. Allocate specific blocks of time for coding, testing, and meetings.\n7.  **Communicate Technical Limitations:** Proactively communicate the limitations of GPT-4o and other tools to stakeholders, managing expectations and influencing project decisions.\n\n## Growth Opportunities\n\n1.  **Agent Orchestration & Architecture:** Deepen understanding of agent orchestration principles and architecture to design more robust and scalable solutions.\n2.  **Prompt Engineering Expertise:** Expand knowledge of advanced prompt engineering techniques, including few-shot learning, chain-of-thought prompting, and prompt optimization for different LLMs.\n\n## 30-Day Focus Plan\n\n1.  **GPT-4o Mitigation Strategy (Week 1):** Document GPT-4o failure modes and create a fallback mechanism to Claude.\n2.  **Mock Server Enhancement Proposal (Week 2):** Develop a proposal for mock server enhancements, including data generation and version control.\n3.  **Data Access Improvement Plan (Week 3):** Collaborate with data engineers to improve data availability for agent development and testing.\n4.  **Project Prioritization Criteria (Week 4):** Work with stakeholders to define clear criteria for prioritizing projects and tasks.\n\n",
+    "mood": null,
+    "productivity": null,
+    "techStack": null
   }
 }
