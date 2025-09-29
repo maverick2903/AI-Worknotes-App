@@ -39,7 +39,13 @@ export const fetchJournalData = async (config: GithubConfig): Promise<{ data: Jo
     }
 
     const { content, sha }: FetchResponse = await response.json();
-    const decodedContent = atob(content);
+    // Decode base64 content safely as UTF-8
+    const binary = atob(content);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    const decodedContent = new TextDecoder().decode(bytes);
     const data: JournalData = JSON.parse(decodedContent);
     return { data, sha };
   } catch (error) {
@@ -58,7 +64,14 @@ export const updateJournalData = async (params: UpdateParams): Promise<{ sha: st
   const { owner, repo, path, branch, token, data, sha, message } = params;
   const url = `${GITHUB_API_URL}/repos/${owner}/${repo}/contents/${path}`;
 
-  const content = btoa(JSON.stringify(data, null, 2));
+  // Encode JSON content safely as UTF-8 base64
+  const jsonString = JSON.stringify(data, null, 2);
+  const utf8Bytes = new TextEncoder().encode(jsonString);
+  let binary = '';
+  for (let i = 0; i < utf8Bytes.length; i++) {
+    binary += String.fromCharCode(utf8Bytes[i]);
+  }
+  const content = btoa(binary);
 
   const body: { message: string; content: string; branch: string; sha?: string } = {
     message,
