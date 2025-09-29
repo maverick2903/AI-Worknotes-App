@@ -46,7 +46,8 @@ export const fetchJournalData = async (config: GithubConfig): Promise<{ data: Jo
       bytes[i] = binary.charCodeAt(i);
     }
     const decodedContent = new TextDecoder().decode(bytes);
-    const data: JournalData = JSON.parse(decodedContent);
+    const parsed = JSON.parse(decodedContent);
+    const data: JournalData = (parsed && typeof parsed === 'object' && 'data' in parsed) ? (parsed as any).data : parsed;
     return { data, sha };
   } catch (error) {
     console.error("Failed to fetch from GitHub:", error);
