@@ -459,6 +459,10 @@
     "2025-10-03": {
       "content": "Holiday",
       "timestamp": "2025-10-07T05:52:50.603Z"
+    },
+    "2025-10-06": {
+      "content": "Received feedback for the Subprime Demo agent, changes to be made in the script, also to add this data in demo db to make a proper UI.\nFixed a STG issue which had popped up, where if a user refuses to give file number, agent just directly transfers. Also added other staging changes like single state, post-silence speech and incorrect threshold to prod.\nAlso added a payment on call state to the GSS state, but need to figure out how to integrate APIs in it, since the mock server doesnt have APIs for credit payment.",
+      "timestamp": "2025-10-07T05:56:48.653Z"
     }
   },
   "weeklySummaries": {
